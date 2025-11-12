@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MomCo Africa - Event Request Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-toggle">
+                <span class="language-label" data-i18n="languageLabel">Language / Langue / Idioma:</span>
+                <button type="button" class="lang-btn active" data-lang="en">English</button>
+                <button type="button" class="lang-btn" data-lang="fr">Français</button>
+                <button type="button" class="lang-btn" data-lang="pt">Português</button>
+            </div>
+            <h1 data-i18n="title">MomCo Africa</h1>
+            <h2 data-i18n="subtitle">Event Request Portal</h2>
+            <p class="subtitle" data-i18n="description">Submit funding requests for events and group support</p>
+        </header>
+
+        <main>
+            <form id="requestForm" class="request-form">
+                <!-- Event Type Selection -->
+                <section class="form-section">
+                    <h3>Select Event Type</h3>
+                    <div class="event-type-selector">
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="group-launch" required>
+                            <div class="card-content">
+                                <h4>Group Launch / Outreach</h4>
+                                <p>Launch new MomCo groups and present mission to potential leaders</p>
+                            </div>
+                        </label>
+
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="leadership-training" required>
+                            <div class="card-content">
+                                <h4>Leadership Training</h4>
+                                <p>Training for existing leaders, team building, and goal setting</p>
+                            </div>
+                        </label>
+
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="group-care" required>
+                            <div class="card-content">
+                                <h4>Group Care</h4>
+                                <p>Support and monitoring for existing groups (optional funding)</p>
+                            </div>
+                        </label>
+
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="other" required>
+                            <div class="card-content">
+                                <h4>Other</h4>
+                                <p>Operational expenses (curriculum, coordination, etc.)</p>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Requester Information -->
+                <section class="form-section">
+                    <h3>Requester Information</h3>
+
+                    <div class="form-group">
+                        <label for="requesterName">Your First Name *</label>
+                        <input type="text" id="requesterName" name="requesterName" required
+                               placeholder="e.g., Julie, Harriet, Faith Rose">
+                        <small class="help-text">First name only (compound names like "Faith Rose" are OK)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <select id="country" name="country" required>
+                            <option value="">-- Select Country --</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                            <option value="DRC">DRC (Democratic Republic of Congo)</option>
+                            <option value="East Uganda">East Uganda</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Libya">Libya</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Rwanda">Rwanda</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Togo">Togo</option>
+                            <option value="West Uganda">West Uganda</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="French Africa">French Africa (Other)</option>
+                            <option value="English Africa">English Africa (Other)</option>
+                            <option value="Portuguese Africa">Portuguese Africa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                   placeholder="your@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="whatsapp">WhatsApp Number</label>
+                            <input type="tel" id="whatsapp" name="whatsapp"
+                                   placeholder="+254 712 345 678">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Event Details (Common) -->
+                <section class="form-section" id="eventDetailsSection">
+                    <h3>Event Details</h3>
+
+                    <div class="form-group">
+                        <label for="location">Location / Venue *</label>
+                        <input type="text" id="location" name="location" required
+                               placeholder="e.g., Nairobi, Kisumu Community Church">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Date of Event *</label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                            <small class="help-text">When will the event take place?</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fundsNeededDate">Date Funds Needed By *</label>
+                            <input type="date" id="fundsNeededDate" name="fundsNeededDate" required>
+                            <small class="help-text">At least 2-3 weeks before event</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="participantsExpected">Number of Participants Expected *</label>
+                        <input type="number" id="participantsExpected" name="participantsExpected"
+                               min="1" required placeholder="e.g., 25">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sendFundsTo">Send Funds To *</label>
+                        <input type="text" id="sendFundsTo" name="sendFundsTo" required
+                               placeholder="Name of person who will receive the transfer">
+                        <small class="help-text">May be different from requester</small>
+                    </div>
+                </section>
+
+                <!-- Event Agenda -->
+                <section class="form-section" id="agendaSection">
+                    <h3>Event Agenda</h3>
+
+                    <div class="form-group">
+                        <label for="agenda">Event Agenda *</label>
+                        <textarea id="agenda" name="agenda" rows="8" required
+                                  placeholder="Example:
+9:00 AM - Welcome and worship
+10:00 AM - MomCo mission presentation
+11:00 AM - Curriculum overview
+12:00 PM - Q&A and registration
+1:00 PM - Closing"></textarea>
+                        <small class="help-text">List your event schedule with times and activities</small>
+                    </div>
+
+                    <button type="button" class="btn-secondary" id="loadGroupLaunchTemplate">
+                        Load Group Launch Template
+                    </button>
+                    <button type="button" class="btn-secondary" id="loadLeadershipTemplate">
+                        Load Leadership Training Template
+                    </button>
+                </section>
+
+                <!-- Budget Request -->
+                <section class="form-section" id="budgetSection">
+                    <h3>Budget Request</h3>
+
+                    <div class="form-group">
+                        <label for="budget">Itemized Budget *</label>
+                        <textarea id="budget" name="budget" rows="6" required
+                                  placeholder="Example:
+Curriculum printing: 5,000 KSH
+Snacks and refreshments: 3,000 KSH
+Transportation for leaders: 2,000 KSH
+Venue rental: 1,500 KSH
+Total: 11,500 KSH"></textarea>
+                        <small class="help-text">List each budget item with amounts</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amountRequested">Total Amount Requested *</label>
+                            <input type="number" id="amountRequested" name="amountRequested"
+                                   step="0.01" min="0" required placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currency">Currency *</label>
+                            <select id="currency" name="currency" required>
+                                <option value="">-- Auto-selected --</option>
+                                <option value="KSH">KSH (Kenyan Shilling)</option>
+                                <option value="GHS">GHS (Ghanaian Cedi)</option>
+                                <option value="USD">USD (US Dollar)</option>
+                                <option value="UGX">UGX (Ugandan Shilling)</option>
+                                <option value="RWF">RWF (Rwandan Franc)</option>
+                                <option value="ZMW">ZMW (Zambian Kwacha)</option>
+                                <option value="XOF">XOF (West African CFA Franc)</option>
+                                <option value="NGN">NGN (Nigerian Naira)</option>
+                                <option value="ZAR">ZAR (South African Rand)</option>
+                                <option value="TZS">TZS (Tanzanian Shilling)</option>
+                            </select>
+                            <small class="help-text">Auto-selected based on country</small>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Group Launch Specific Fields -->
+                <section class="form-section event-specific" id="groupLaunchFields" style="display: none;">
+                    <h3>Group Launch Details</h3>
+
+                    <div class="form-group">
+                        <label for="potentialGroups">Number of Potential New Groups/Leaders</label>
+                        <input type="number" id="potentialGroups" name="potentialGroups"
+                               min="0" placeholder="e.g., 5">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="curriculumCopies">Curriculum Copies Needed</label>
+                            <input type="number" id="curriculumCopies" name="curriculumCopies"
+                                   min="0" placeholder="e.g., 30">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ministryAgreementCopies">Ministry Agreement Copies Needed</label>
+                            <input type="number" id="ministryAgreementCopies" name="ministryAgreementCopies"
+                                   min="0" placeholder="e.g., 30">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requests</label>
+                        <textarea id="specialRequests" name="specialRequests" rows="4"
+                                  placeholder="e.g., Video message from GMD, Call-in participation, Letter from leadership"></textarea>
+                    </div>
+                </section>
+
+                <!-- Leadership Training Specific Fields -->
+                <section class="form-section event-specific" id="leadershipTrainingFields" style="display: none;">
+                    <h3>Leadership Training Details</h3>
+
+                    <div class="form-group">
+                        <label for="attendingLeaders">Attending Leaders</label>
+                        <textarea id="attendingLeaders" name="attendingLeaders" rows="4"
+                                  placeholder="List leader names and the groups they represent:
+e.g.,
+Sarah - Nairobi Group 1
+Mary - Kisumu Leaders
+Grace - Machakos Community"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Training Topics *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="handbook">
+                                Leadership Handbook, Mission & Vision
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="curriculum">
+                                Global Curriculum Resources
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="meetup">
+                                Key Aspects of a Meetup
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="online">
+                                MomCo Online Resources
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="general">
+                                General Leadership Training
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="certification">
+                                Leadership Certification
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="trainingTopics" value="other">
+                                Other (specify below)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trainingOther">Other Training Topics</label>
+                        <input type="text" id="trainingOther" name="trainingOther"
+                               placeholder="Specify other topics if selected above">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="logisticsNeeds">Transportation, Lodging, or Meal Plans</label>
+                        <textarea id="logisticsNeeds" name="logisticsNeeds" rows="4"
+                                  placeholder="Describe any special logistics needs:
+e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for 20 people"></textarea>
+                    </div>
+                </section>
+
+                <!-- Group Care Specific Fields -->
+                <section class="form-section event-specific" id="groupCareFields" style="display: none;">
+                    <h3>Group Care Details</h3>
+
+                    <div class="form-group">
+                        <label for="groupName">Group Name / Location *</label>
+                        <input type="text" id="groupName" name="groupName"
+                               placeholder="e.g., Kisumu Leaders Group">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="groupLeader">Group Leader *</label>
+                            <input type="text" id="groupLeader" name="groupLeader"
+                                   placeholder="e.g., Sarah Mwangi">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="momsInGroup">Number of Moms in Group *</label>
+                            <input type="number" id="momsInGroup" name="momsInGroup"
+                                   min="0" placeholder="e.g., 15">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Group Status *</label>
+                        <div class="status-selector">
+                            <label class="status-option status-green">
+                                <input type="radio" name="groupStatus" value="green">
+                                <div class="status-content">
+                                    <span class="status-icon">🟢</span>
+                                    <div>
+                                        <strong>Green - Healthy</strong>
+                                        <p>Meeting regularly, using curriculum, leaders trained, thriving</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="status-option status-yellow">
+                                <input type="radio" name="groupStatus" value="yellow">
+                                <div class="status-content">
+                                    <span class="status-icon">🟡</span>
+                                    <div>
+                                        <strong>Yellow - Struggling</strong>
+                                        <p>Leadership issues, not using curriculum, irregular meetings</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="status-option status-red">
+                                <input type="radio" name="groupStatus" value="red">
+                                <div class="status-content">
+                                    <span class="status-icon">🔴</span>
+                                    <div>
+                                        <strong>Red - At Risk</strong>
+                                        <p>Not meeting, unresponsive for 4+ months, likely to close</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="statusExplanation">Explain Reason for This Status *</label>
+                        <textarea id="statusExplanation" name="statusExplanation" rows="4"
+                                  placeholder="Describe the current situation of this group..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supportNeeded">Support Needed</label>
+                        <textarea id="supportNeeded" name="supportNeeded" rows="4"
+                                  placeholder="What assistance or resources does this group need?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fundingPurpose">Purpose of Funding Request (if requesting funds)</label>
+                        <textarea id="fundingPurpose" name="fundingPurpose" rows="4"
+                                  placeholder="Optional - Examples: Curriculum materials, Leader encouragement event, Meeting space rental, Transportation assistance, Emergency support"></textarea>
+                        <small class="help-text">Leave blank if this is monitoring only (no funding needed)</small>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Note:</strong> Group Care requests can be submitted with or without funding.
+                        If you're only reporting the group's status without requesting funds, leave the budget section empty.
+                    </div>
+                </section>
+
+                <!-- Other Request Specific Fields -->
+                <section class="form-section event-specific" id="otherFields" style="display: none;">
+                    <h3>Other Request Details</h3>
+
+                    <div class="form-group">
+                        <label for="purposeDescription">Purpose / Description *</label>
+                        <textarea id="purposeDescription" name="purposeDescription" rows="6" required
+                                  placeholder="Explain what the funds will be used for:
+Examples:
+- Curriculum printing for multiple groups
+- Regional coordinator support for Q1
+- Translation services
+- Emergency operational needs"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timePeriod">Time Period Covered</label>
+                        <input type="text" id="timePeriod" name="timePeriod"
+                               placeholder="e.g., Q1 2025, Annual 2025, Half Year 2025">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="groupsSupported">Groups or Activities Supported</label>
+                        <textarea id="groupsSupported" name="groupsSupported" rows="4"
+                                  placeholder="List which groups or activities these funds will support..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Additional Notes -->
+                <section class="form-section">
+                    <h3>Additional Information</h3>
+
+                    <div class="form-group">
+                        <label for="additionalNotes">Notes or Comments</label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4"
+                                  placeholder="Any other information you'd like to share..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <section class="form-section">
+                    <div class="submit-section">
+                        <button type="submit" class="btn-primary">Submit Request</button>
+                        <button type="reset" class="btn-secondary">Clear Form</button>
+                    </div>
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                </section>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 MomCo Africa. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
