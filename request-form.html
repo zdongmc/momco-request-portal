@@ -157,55 +157,45 @@
 
                 <!-- Event Agenda -->
                 <section class="form-section" id="agendaSection">
-                    <h3>Event Agenda</h3>
+                    <h3 data-i18n="eventAgenda">Event Agenda</h3>
 
                     <div class="form-group">
-                        <label for="agenda">Event Agenda *</label>
+                        <label for="agenda"><span data-i18n="agendaLabel">Event Agenda</span> *</label>
                         <textarea id="agenda" name="agenda" rows="8" required
-                                  placeholder="Example:
-9:00 AM - Welcome and worship
-10:00 AM - MomCo mission presentation
-11:00 AM - Curriculum overview
-12:00 PM - Q&A and registration
-1:00 PM - Closing"></textarea>
-                        <small class="help-text">List your event schedule with times and activities</small>
+                                  data-i18n-placeholder="agendaPlaceholder"></textarea>
+                        <small class="help-text" data-i18n="agendaHelp">List your event schedule with times and activities</small>
                     </div>
 
-                    <button type="button" class="btn-secondary" id="loadGroupLaunchTemplate">
+                    <button type="button" class="btn-secondary" id="loadGroupLaunchTemplate" data-i18n="loadGroupLaunchTemplate">
                         Load Group Launch Template
                     </button>
-                    <button type="button" class="btn-secondary" id="loadLeadershipTemplate">
+                    <button type="button" class="btn-secondary" id="loadLeadershipTemplate" data-i18n="loadLeadershipTemplate">
                         Load Leadership Training Template
                     </button>
                 </section>
 
                 <!-- Budget Request -->
                 <section class="form-section" id="budgetSection">
-                    <h3>Budget Request</h3>
+                    <h3 data-i18n="budgetRequest">Budget Request</h3>
 
                     <div class="form-group">
-                        <label for="budget">Itemized Budget *</label>
+                        <label for="budget"><span data-i18n="itemizedBudget">Itemized Budget</span> *</label>
                         <textarea id="budget" name="budget" rows="6" required
-                                  placeholder="Example:
-Curriculum printing: 5,000 KSH
-Snacks and refreshments: 3,000 KSH
-Transportation for leaders: 2,000 KSH
-Venue rental: 1,500 KSH
-Total: 11,500 KSH"></textarea>
-                        <small class="help-text">List each budget item with amounts</small>
+                                  data-i18n-placeholder="budgetPlaceholder"></textarea>
+                        <small class="help-text" data-i18n="budgetHelp">List each budget item with amounts</small>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="amountRequested">Total Amount Requested *</label>
+                            <label for="amountRequested"><span data-i18n="totalAmountRequested">Total Amount Requested</span> *</label>
                             <input type="number" id="amountRequested" name="amountRequested"
                                    step="0.01" min="0" required placeholder="0.00">
                         </div>
 
                         <div class="form-group">
-                            <label for="currency">Currency *</label>
+                            <label for="currency"><span data-i18n="currency">Currency</span> *</label>
                             <select id="currency" name="currency" required>
-                                <option value="">-- Auto-selected --</option>
+                                <option value="" data-i18n="currencySelectDefault">-- Auto-selected --</option>
                                 <option value="KSH">KSH (Kenyan Shilling)</option>
                                 <option value="GHS">GHS (Ghanaian Cedi)</option>
                                 <option value="USD">USD (US Dollar)</option>
@@ -217,138 +207,133 @@ Total: 11,500 KSH"></textarea>
                                 <option value="ZAR">ZAR (South African Rand)</option>
                                 <option value="TZS">TZS (Tanzanian Shilling)</option>
                             </select>
-                            <small class="help-text">Auto-selected based on country</small>
+                            <small class="help-text" data-i18n="currencyAutoSelected">Auto-selected based on country</small>
                         </div>
                     </div>
                 </section>
 
                 <!-- Group Launch Specific Fields -->
                 <section class="form-section event-specific" id="groupLaunchFields" style="display: none;">
-                    <h3>Group Launch Details</h3>
+                    <h3 data-i18n="groupLaunchDetails">Group Launch Details</h3>
 
                     <div class="form-group">
-                        <label for="potentialGroups">Number of Potential New Groups/Leaders</label>
+                        <label for="potentialGroups" data-i18n="potentialGroups">Number of Potential New Groups/Leaders</label>
                         <input type="number" id="potentialGroups" name="potentialGroups"
-                               min="0" placeholder="e.g., 5">
+                               min="0" data-i18n-placeholder="potentialGroupsPlaceholder" placeholder="e.g., 5">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="curriculumCopies">Curriculum Copies Needed</label>
+                            <label for="curriculumCopies" data-i18n="curriculumCopies">Curriculum Copies Needed</label>
                             <input type="number" id="curriculumCopies" name="curriculumCopies"
-                                   min="0" placeholder="e.g., 30">
+                                   min="0" data-i18n-placeholder="curriculumCopiesPlaceholder" placeholder="e.g., 30">
                         </div>
 
                         <div class="form-group">
-                            <label for="ministryAgreementCopies">Ministry Agreement Copies Needed</label>
+                            <label for="ministryAgreementCopies" data-i18n="ministryAgreementCopies">Ministry Agreement Copies Needed</label>
                             <input type="number" id="ministryAgreementCopies" name="ministryAgreementCopies"
-                                   min="0" placeholder="e.g., 30">
+                                   min="0" data-i18n-placeholder="ministryAgreementCopiesPlaceholder" placeholder="e.g., 30">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="specialRequests">Special Requests</label>
+                        <label for="specialRequests" data-i18n="specialRequests">Special Requests</label>
                         <textarea id="specialRequests" name="specialRequests" rows="4"
-                                  placeholder="e.g., Video message from GMD, Call-in participation, Letter from leadership"></textarea>
+                                  data-i18n-placeholder="specialRequestsPlaceholder"></textarea>
                     </div>
                 </section>
 
                 <!-- Leadership Training Specific Fields -->
                 <section class="form-section event-specific" id="leadershipTrainingFields" style="display: none;">
-                    <h3>Leadership Training Details</h3>
+                    <h3 data-i18n="leadershipTrainingDetails">Leadership Training Details</h3>
 
                     <div class="form-group">
-                        <label for="attendingLeaders">Attending Leaders</label>
+                        <label for="attendingLeaders" data-i18n="attendingLeaders">Attending Leaders</label>
                         <textarea id="attendingLeaders" name="attendingLeaders" rows="4"
-                                  placeholder="List leader names and the groups they represent:
-e.g.,
-Sarah - Nairobi Group 1
-Mary - Kisumu Leaders
-Grace - Machakos Community"></textarea>
+                                  data-i18n-placeholder="attendingLeadersPlaceholder"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label>Training Topics *</label>
+                        <label data-i18n="trainingTopicsLabel">Training Topics *</label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="handbook">
-                                Leadership Handbook, Mission & Vision
+                                <span data-i18n="trainingHandbook">Leadership Handbook, Mission & Vision</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="curriculum">
-                                Global Curriculum Resources
+                                <span data-i18n="trainingCurriculum">Global Curriculum Resources</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="meetup">
-                                Key Aspects of a Meetup
+                                <span data-i18n="trainingMeetup">Key Aspects of a Meetup</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="online">
-                                MomCo Online Resources
+                                <span data-i18n="trainingOnline">MomCo Online Resources</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="general">
-                                General Leadership Training
+                                <span data-i18n="trainingGeneral">General Leadership Training</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="certification">
-                                Leadership Certification
+                                <span data-i18n="trainingCertification">Leadership Certification</span>
                             </label>
                             <label class="checkbox-label">
                                 <input type="checkbox" name="trainingTopics" value="other">
-                                Other (specify below)
+                                <span data-i18n="trainingOtherOption">Other (specify below)</span>
                             </label>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="trainingOther">Other Training Topics</label>
+                        <label for="trainingOther" data-i18n="otherTrainingTopics">Other Training Topics</label>
                         <input type="text" id="trainingOther" name="trainingOther"
-                               placeholder="Specify other topics if selected above">
+                               data-i18n-placeholder="otherTrainingTopicsPlaceholder" placeholder="Specify other topics if selected above">
                     </div>
 
                     <div class="form-group">
-                        <label for="logisticsNeeds">Transportation, Lodging, or Meal Plans</label>
+                        <label for="logisticsNeeds" data-i18n="logisticsNeeds">Transportation, Lodging, or Meal Plans</label>
                         <textarea id="logisticsNeeds" name="logisticsNeeds" rows="4"
-                                  placeholder="Describe any special logistics needs:
-e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for 20 people"></textarea>
+                                  data-i18n-placeholder="logisticsNeedsPlaceholder"></textarea>
                     </div>
                 </section>
 
                 <!-- Group Care Specific Fields -->
                 <section class="form-section event-specific" id="groupCareFields" style="display: none;">
-                    <h3>Group Care Details</h3>
+                    <h3 data-i18n="groupCareDetails">Group Care Details</h3>
 
                     <div class="form-group">
-                        <label for="groupName">Group Name / Location *</label>
+                        <label for="groupName"><span data-i18n="groupName">Group Name / Location</span> *</label>
                         <input type="text" id="groupName" name="groupName"
-                               placeholder="e.g., Kisumu Leaders Group">
+                               data-i18n-placeholder="groupNamePlaceholder" placeholder="e.g., Kisumu Leaders Group">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="groupLeader">Group Leader *</label>
+                            <label for="groupLeader"><span data-i18n="groupLeader">Group Leader</span> *</label>
                             <input type="text" id="groupLeader" name="groupLeader"
-                                   placeholder="e.g., Sarah Mwangi">
+                                   data-i18n-placeholder="groupLeaderPlaceholder" placeholder="e.g., Sarah Mwangi">
                         </div>
 
                         <div class="form-group">
-                            <label for="momsInGroup">Number of Moms in Group *</label>
+                            <label for="momsInGroup"><span data-i18n="momsInGroup">Number of Moms in Group</span> *</label>
                             <input type="number" id="momsInGroup" name="momsInGroup"
-                                   min="0" placeholder="e.g., 15">
+                                   min="0" data-i18n-placeholder="momsInGroupPlaceholder" placeholder="e.g., 15">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Group Status *</label>
+                        <label data-i18n="groupStatusLabel">Group Status *</label>
                         <div class="status-selector">
                             <label class="status-option status-green">
                                 <input type="radio" name="groupStatus" value="green">
                                 <div class="status-content">
                                     <span class="status-icon">🟢</span>
                                     <div>
-                                        <strong>Green - Healthy</strong>
-                                        <p>Meeting regularly, using curriculum, leaders trained, thriving</p>
+                                        <strong data-i18n="statusGreen">Green - Healthy</strong>
+                                        <p data-i18n="statusGreenDesc">Meeting regularly, using curriculum, leaders trained, thriving</p>
                                     </div>
                                 </div>
                             </label>
@@ -358,8 +343,8 @@ e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for
                                 <div class="status-content">
                                     <span class="status-icon">🟡</span>
                                     <div>
-                                        <strong>Yellow - Struggling</strong>
-                                        <p>Leadership issues, not using curriculum, irregular meetings</p>
+                                        <strong data-i18n="statusYellow">Yellow - Struggling</strong>
+                                        <p data-i18n="statusYellowDesc">Leadership issues, not using curriculum, irregular meetings</p>
                                     </div>
                                 </div>
                             </label>
@@ -369,8 +354,8 @@ e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for
                                 <div class="status-content">
                                     <span class="status-icon">🔴</span>
                                     <div>
-                                        <strong>Red - At Risk</strong>
-                                        <p>Not meeting, unresponsive for 4+ months, likely to close</p>
+                                        <strong data-i18n="statusRed">Red - At Risk</strong>
+                                        <p data-i18n="statusRedDesc">Not meeting, unresponsive for 4+ months, likely to close</p>
                                     </div>
                                 </div>
                             </label>
@@ -378,74 +363,69 @@ e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for
                     </div>
 
                     <div class="form-group">
-                        <label for="statusExplanation">Explain Reason for This Status *</label>
+                        <label for="statusExplanation"><span data-i18n="statusExplanation">Explain Reason for This Status</span> *</label>
                         <textarea id="statusExplanation" name="statusExplanation" rows="4"
-                                  placeholder="Describe the current situation of this group..."></textarea>
+                                  data-i18n-placeholder="statusExplanationPlaceholder"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="supportNeeded">Support Needed</label>
+                        <label for="supportNeeded" data-i18n="supportNeeded">Support Needed</label>
                         <textarea id="supportNeeded" name="supportNeeded" rows="4"
-                                  placeholder="What assistance or resources does this group need?"></textarea>
+                                  data-i18n-placeholder="supportNeededPlaceholder"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="fundingPurpose">Purpose of Funding Request (if requesting funds)</label>
+                        <label for="fundingPurpose" data-i18n="fundingPurpose">Purpose of Funding Request (if requesting funds)</label>
                         <textarea id="fundingPurpose" name="fundingPurpose" rows="4"
-                                  placeholder="Optional - Examples: Curriculum materials, Leader encouragement event, Meeting space rental, Transportation assistance, Emergency support"></textarea>
-                        <small class="help-text">Leave blank if this is monitoring only (no funding needed)</small>
+                                  data-i18n-placeholder="fundingPurposePlaceholder"></textarea>
+                        <small class="help-text" data-i18n="fundingPurposeHelp">Leave blank if this is monitoring only (no funding needed)</small>
                     </div>
 
                     <div class="info-box">
-                        <strong>Note:</strong> Group Care requests can be submitted with or without funding.
-                        If you're only reporting the group's status without requesting funds, leave the budget section empty.
+                        <span data-i18n="groupCareNote"><strong>Note:</strong> Group Care requests can be submitted with or without funding.
+                        If you're only reporting the group's status without requesting funds, leave the budget section empty.</span>
                     </div>
                 </section>
 
                 <!-- Other Request Specific Fields -->
                 <section class="form-section event-specific" id="otherFields" style="display: none;">
-                    <h3>Other Request Details</h3>
+                    <h3 data-i18n="otherDetails">Other Request Details</h3>
 
                     <div class="form-group">
-                        <label for="purposeDescription">Purpose / Description *</label>
+                        <label for="purposeDescription"><span data-i18n="purposeDescription">Purpose / Description</span> *</label>
                         <textarea id="purposeDescription" name="purposeDescription" rows="6" required
-                                  placeholder="Explain what the funds will be used for:
-Examples:
-- Curriculum printing for multiple groups
-- Regional coordinator support for Q1
-- Translation services
-- Emergency operational needs"></textarea>
+                                  data-i18n-placeholder="purposeDescriptionPlaceholder"></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="timePeriod">Time Period Covered</label>
+                        <label for="timePeriod" data-i18n="timePeriod">Time Period Covered</label>
                         <input type="text" id="timePeriod" name="timePeriod"
-                               placeholder="e.g., Q1 2025, Annual 2025, Half Year 2025">
+                               data-i18n-placeholder="timePeriodPlaceholder" placeholder="e.g., Q1 2025, Annual 2025, Half Year 2025">
                     </div>
 
                     <div class="form-group">
-                        <label for="groupsSupported">Groups or Activities Supported</label>
+                        <label for="groupsSupported" data-i18n="groupsSupported">Groups or Activities Supported</label>
                         <textarea id="groupsSupported" name="groupsSupported" rows="4"
-                                  placeholder="List which groups or activities these funds will support..."></textarea>
+                                  data-i18n-placeholder="groupsSupportedPlaceholder"></textarea>
                     </div>
                 </section>
 
                 <!-- Additional Notes -->
                 <section class="form-section">
-                    <h3>Additional Information</h3>
+                    <h3 data-i18n="additionalInfo">Additional Information</h3>
 
                     <div class="form-group">
-                        <label for="additionalNotes">Notes or Comments</label>
+                        <label for="additionalNotes" data-i18n="notes">Notes or Comments</label>
                         <textarea id="additionalNotes" name="additionalNotes" rows="4"
-                                  placeholder="Any other information you'd like to share..."></textarea>
+                                  data-i18n-placeholder="notesPlaceholder"></textarea>
                     </div>
                 </section>
 
                 <!-- Submit Button -->
                 <section class="form-section">
                     <div class="submit-section">
-                        <button type="submit" class="btn-primary">Submit Request</button>
-                        <button type="reset" class="btn-secondary">Clear Form</button>
+                        <button type="submit" class="btn-primary" data-i18n="submitRequest">Submit Request</button>
+                        <button type="reset" class="btn-secondary" data-i18n="clearForm">Clear Form</button>
                     </div>
                     <div id="formMessage" class="form-message" style="display: none;"></div>
                 </section>

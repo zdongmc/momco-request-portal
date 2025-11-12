@@ -60,7 +60,12 @@ function applyLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key]) {
-            el.textContent = t[key];
+            // Special handling for elements that contain HTML like <strong>
+            if (el.innerHTML.includes('<strong>') || el.innerHTML.includes('<')) {
+                el.innerHTML = t[key];
+            } else {
+                el.textContent = t[key];
+            }
         }
     });
 
