@@ -3,461 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MomCo Africa - Event Request Portal</title>
+    <title>MomCo Africa Portal</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Landing page specific styles */
+        .landing-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .landing-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+
+        .landing-header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .landing-header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .portal-options {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+        }
+
+        .portal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            width: 380px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .portal-card-icon {
+            font-size: 5em;
+            margin-bottom: 20px;
+        }
+
+        .portal-card h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .portal-card p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .portal-card-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .portal-card:hover .portal-card-button {
+            opacity: 0.9;
+        }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .language-label {
+            color: white;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin: 0 3px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .landing-footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: white;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .landing-header h1 {
+                font-size: 2em;
+            }
+
+            .landing-header p {
+                font-size: 1.1em;
+            }
+
+            .portal-options {
+                gap: 20px;
+            }
+
+            .portal-card {
+                width: 100%;
+                max-width: 350px;
+                padding: 40px 30px;
+            }
+
+            .language-toggle {
+                position: static;
+                margin-bottom: 30px;
+            }
+
+            .landing-footer {
+                position: static;
+                margin-top: 40px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="language-toggle">
-                <span class="language-label" data-i18n="languageLabel">Language / Langue / Idioma:</span>
-                <button type="button" class="lang-btn active" data-lang="en">English</button>
-                <button type="button" class="lang-btn" data-lang="fr">Français</button>
-                <button type="button" class="lang-btn" data-lang="pt">Português</button>
-            </div>
-            <h1 data-i18n="title">MomCo Africa</h1>
-            <h2 data-i18n="subtitle">Event Request Portal</h2>
-            <p class="subtitle" data-i18n="description">Submit funding requests for events and group support</p>
-        </header>
+    <div class="landing-container">
+        <div class="language-toggle">
+            <span class="language-label" data-i18n="languageLabel">Language:</span>
+            <button type="button" class="lang-btn active" data-lang="en">English</button>
+            <button type="button" class="lang-btn" data-lang="fr">Français</button>
+            <button type="button" class="lang-btn" data-lang="pt">Português</button>
+        </div>
 
-        <main>
-            <form id="requestForm" class="request-form">
-                <!-- Event Type Selection -->
-                <section class="form-section">
-                    <h3 data-i18n="selectEventType">Select Event Type</h3>
-                    <div class="event-type-selector">
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="group-launch" required>
-                            <div class="card-content">
-                                <h4 data-i18n="groupLaunchTitle">Group Launch / Outreach</h4>
-                                <p data-i18n="groupLaunchDesc">Launch new MomCo groups and present mission to potential leaders</p>
-                            </div>
-                        </label>
+        <div class="landing-header">
+            <h1 data-i18n="landingTitle">MomCo Africa Portal</h1>
+            <p data-i18n="landingSubtitle">Supporting mothers and leaders across Africa</p>
+        </div>
 
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="leadership-training" required>
-                            <div class="card-content">
-                                <h4 data-i18n="leadershipTrainingTitle">Leadership Training</h4>
-                                <p data-i18n="leadershipTrainingDesc">Training for existing leaders, team building, and goal setting</p>
-                            </div>
-                        </label>
+        <div class="portal-options">
+            <a href="request-form.html" class="portal-card">
+                <div class="portal-card-icon">💰</div>
+                <h2 data-i18n="requestFundsTitle">Request Funds</h2>
+                <p data-i18n="requestFundsDesc">Submit a funding request for events, group launches, leadership training, or operational expenses</p>
+                <span class="portal-card-button" data-i18n="requestFundsButton">Get Started</span>
+            </a>
 
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="group-care" required>
-                            <div class="card-content">
-                                <h4 data-i18n="groupCareTitle">Group Care</h4>
-                                <p data-i18n="groupCareDesc">Support and monitoring for existing groups (optional funding)</p>
-                            </div>
-                        </label>
+            <a href="post-event-report.html" class="portal-card">
+                <div class="portal-card-icon">📝</div>
+                <h2 data-i18n="submitReportTitle">Submit Report</h2>
+                <p data-i18n="submitReportDesc">Submit a post-event report with photos, attendance, and outcomes from your completed event</p>
+                <span class="portal-card-button" data-i18n="submitReportButton">Get Started</span>
+            </a>
+        </div>
 
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="other" required>
-                            <div class="card-content">
-                                <h4 data-i18n="otherTitle">Other</h4>
-                                <p data-i18n="otherDesc">Operational expenses (curriculum, coordination, etc.)</p>
-                            </div>
-                        </label>
-                    </div>
-                </section>
-
-                <!-- Requester Information -->
-                <section class="form-section">
-                    <h3 data-i18n="requesterInfo">Requester Information</h3>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName"><span data-i18n="firstName">First Name</span> *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName"><span data-i18n="lastName">Last Name</span> *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="country"><span data-i18n="country">Country</span> *</label>
-                        <select id="country" name="country" required>
-                            <option value="" data-i18n="selectCountry">-- Select Country --</option>
-                            <option value="Benin">Benin</option>
-                            <option value="Burkina Faso">Burkina Faso</option>
-                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-                            <option value="DRC">DRC (Democratic Republic of Congo)</option>
-                            <option value="East Uganda">East Uganda</option>
-                            <option value="Ghana">Ghana</option>
-                            <option value="Kenya">Kenya</option>
-                            <option value="Libya">Libya</option>
-                            <option value="Mali">Mali</option>
-                            <option value="Nigeria">Nigeria</option>
-                            <option value="Rwanda">Rwanda</option>
-                            <option value="South Africa">South Africa</option>
-                            <option value="Tanzania">Tanzania</option>
-                            <option value="Togo">Togo</option>
-                            <option value="West Uganda">West Uganda</option>
-                            <option value="Zambia">Zambia</option>
-                            <option value="French Africa">French Africa (Other)</option>
-                            <option value="English Africa">English Africa (Other)</option>
-                            <option value="Portuguese Africa">Portuguese Africa</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email"><span data-i18n="email">Email</span> *</label>
-                            <input type="email" id="email" name="email" required
-                                   placeholder="your@email.com">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="whatsapp" data-i18n="whatsapp">WhatsApp Number</label>
-                            <input type="tel" id="whatsapp" name="whatsapp"
-                                   placeholder="+254 712 345 678">
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Event Details (Common) -->
-                <section class="form-section" id="eventDetailsSection">
-                    <h3 data-i18n="eventDetails">Event Details</h3>
-
-                    <div class="form-group">
-                        <label for="location"><span data-i18n="location">Location / Venue</span> *</label>
-                        <input type="text" id="location" name="location" required
-                               data-i18n-placeholder="locationPlaceholder" placeholder="e.g., Nairobi, Kisumu Community Church">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="eventDate"><span data-i18n="eventDate">Date of Event</span> *</label>
-                            <input type="date" id="eventDate" name="eventDate" required>
-                            <small class="help-text" data-i18n="eventDateHelp">When will the event take place?</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="fundsNeededDate"><span data-i18n="fundsNeededDate">Date Funds Needed By</span> *</label>
-                            <input type="date" id="fundsNeededDate" name="fundsNeededDate" required>
-                            <small class="help-text" data-i18n="fundsNeededHelp">At least 2-3 weeks before event</small>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="participantsExpected"><span data-i18n="participantsExpected">Number of Participants Expected</span> *</label>
-                        <input type="number" id="participantsExpected" name="participantsExpected"
-                               min="1" required placeholder="e.g., 25">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
-                        <input type="text" id="sendFundsTo" name="sendFundsTo" required
-                               data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
-                        <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
-                    </div>
-                </section>
-
-                <!-- Event Agenda -->
-                <section class="form-section" id="agendaSection">
-                    <h3>Event Agenda</h3>
-
-                    <div class="form-group">
-                        <label for="agenda">Event Agenda *</label>
-                        <textarea id="agenda" name="agenda" rows="8" required
-                                  placeholder="Example:
-9:00 AM - Welcome and worship
-10:00 AM - MomCo mission presentation
-11:00 AM - Curriculum overview
-12:00 PM - Q&A and registration
-1:00 PM - Closing"></textarea>
-                        <small class="help-text">List your event schedule with times and activities</small>
-                    </div>
-
-                    <button type="button" class="btn-secondary" id="loadGroupLaunchTemplate">
-                        Load Group Launch Template
-                    </button>
-                    <button type="button" class="btn-secondary" id="loadLeadershipTemplate">
-                        Load Leadership Training Template
-                    </button>
-                </section>
-
-                <!-- Budget Request -->
-                <section class="form-section" id="budgetSection">
-                    <h3>Budget Request</h3>
-
-                    <div class="form-group">
-                        <label for="budget">Itemized Budget *</label>
-                        <textarea id="budget" name="budget" rows="6" required
-                                  placeholder="Example:
-Curriculum printing: 5,000 KSH
-Snacks and refreshments: 3,000 KSH
-Transportation for leaders: 2,000 KSH
-Venue rental: 1,500 KSH
-Total: 11,500 KSH"></textarea>
-                        <small class="help-text">List each budget item with amounts</small>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="amountRequested">Total Amount Requested *</label>
-                            <input type="number" id="amountRequested" name="amountRequested"
-                                   step="0.01" min="0" required placeholder="0.00">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="currency">Currency *</label>
-                            <select id="currency" name="currency" required>
-                                <option value="">-- Auto-selected --</option>
-                                <option value="KSH">KSH (Kenyan Shilling)</option>
-                                <option value="GHS">GHS (Ghanaian Cedi)</option>
-                                <option value="USD">USD (US Dollar)</option>
-                                <option value="UGX">UGX (Ugandan Shilling)</option>
-                                <option value="RWF">RWF (Rwandan Franc)</option>
-                                <option value="ZMW">ZMW (Zambian Kwacha)</option>
-                                <option value="XOF">XOF (West African CFA Franc)</option>
-                                <option value="NGN">NGN (Nigerian Naira)</option>
-                                <option value="ZAR">ZAR (South African Rand)</option>
-                                <option value="TZS">TZS (Tanzanian Shilling)</option>
-                            </select>
-                            <small class="help-text">Auto-selected based on country</small>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Group Launch Specific Fields -->
-                <section class="form-section event-specific" id="groupLaunchFields" style="display: none;">
-                    <h3>Group Launch Details</h3>
-
-                    <div class="form-group">
-                        <label for="potentialGroups">Number of Potential New Groups/Leaders</label>
-                        <input type="number" id="potentialGroups" name="potentialGroups"
-                               min="0" placeholder="e.g., 5">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="curriculumCopies">Curriculum Copies Needed</label>
-                            <input type="number" id="curriculumCopies" name="curriculumCopies"
-                                   min="0" placeholder="e.g., 30">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="ministryAgreementCopies">Ministry Agreement Copies Needed</label>
-                            <input type="number" id="ministryAgreementCopies" name="ministryAgreementCopies"
-                                   min="0" placeholder="e.g., 30">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="specialRequests">Special Requests</label>
-                        <textarea id="specialRequests" name="specialRequests" rows="4"
-                                  placeholder="e.g., Video message from GMD, Call-in participation, Letter from leadership"></textarea>
-                    </div>
-                </section>
-
-                <!-- Leadership Training Specific Fields -->
-                <section class="form-section event-specific" id="leadershipTrainingFields" style="display: none;">
-                    <h3>Leadership Training Details</h3>
-
-                    <div class="form-group">
-                        <label for="attendingLeaders">Attending Leaders</label>
-                        <textarea id="attendingLeaders" name="attendingLeaders" rows="4"
-                                  placeholder="List leader names and the groups they represent:
-e.g.,
-Sarah - Nairobi Group 1
-Mary - Kisumu Leaders
-Grace - Machakos Community"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Training Topics *</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="handbook">
-                                Leadership Handbook, Mission & Vision
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="curriculum">
-                                Global Curriculum Resources
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="meetup">
-                                Key Aspects of a Meetup
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="online">
-                                MomCo Online Resources
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="general">
-                                General Leadership Training
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="certification">
-                                Leadership Certification
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="other">
-                                Other (specify below)
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="trainingOther">Other Training Topics</label>
-                        <input type="text" id="trainingOther" name="trainingOther"
-                               placeholder="Specify other topics if selected above">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="logisticsNeeds">Transportation, Lodging, or Meal Plans</label>
-                        <textarea id="logisticsNeeds" name="logisticsNeeds" rows="4"
-                                  placeholder="Describe any special logistics needs:
-e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for 20 people"></textarea>
-                    </div>
-                </section>
-
-                <!-- Group Care Specific Fields -->
-                <section class="form-section event-specific" id="groupCareFields" style="display: none;">
-                    <h3>Group Care Details</h3>
-
-                    <div class="form-group">
-                        <label for="groupName">Group Name / Location *</label>
-                        <input type="text" id="groupName" name="groupName"
-                               placeholder="e.g., Kisumu Leaders Group">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="groupLeader">Group Leader *</label>
-                            <input type="text" id="groupLeader" name="groupLeader"
-                                   placeholder="e.g., Sarah Mwangi">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="momsInGroup">Number of Moms in Group *</label>
-                            <input type="number" id="momsInGroup" name="momsInGroup"
-                                   min="0" placeholder="e.g., 15">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Group Status *</label>
-                        <div class="status-selector">
-                            <label class="status-option status-green">
-                                <input type="radio" name="groupStatus" value="green">
-                                <div class="status-content">
-                                    <span class="status-icon">🟢</span>
-                                    <div>
-                                        <strong>Green - Healthy</strong>
-                                        <p>Meeting regularly, using curriculum, leaders trained, thriving</p>
-                                    </div>
-                                </div>
-                            </label>
-
-                            <label class="status-option status-yellow">
-                                <input type="radio" name="groupStatus" value="yellow">
-                                <div class="status-content">
-                                    <span class="status-icon">🟡</span>
-                                    <div>
-                                        <strong>Yellow - Struggling</strong>
-                                        <p>Leadership issues, not using curriculum, irregular meetings</p>
-                                    </div>
-                                </div>
-                            </label>
-
-                            <label class="status-option status-red">
-                                <input type="radio" name="groupStatus" value="red">
-                                <div class="status-content">
-                                    <span class="status-icon">🔴</span>
-                                    <div>
-                                        <strong>Red - At Risk</strong>
-                                        <p>Not meeting, unresponsive for 4+ months, likely to close</p>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="statusExplanation">Explain Reason for This Status *</label>
-                        <textarea id="statusExplanation" name="statusExplanation" rows="4"
-                                  placeholder="Describe the current situation of this group..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="supportNeeded">Support Needed</label>
-                        <textarea id="supportNeeded" name="supportNeeded" rows="4"
-                                  placeholder="What assistance or resources does this group need?"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fundingPurpose">Purpose of Funding Request (if requesting funds)</label>
-                        <textarea id="fundingPurpose" name="fundingPurpose" rows="4"
-                                  placeholder="Optional - Examples: Curriculum materials, Leader encouragement event, Meeting space rental, Transportation assistance, Emergency support"></textarea>
-                        <small class="help-text">Leave blank if this is monitoring only (no funding needed)</small>
-                    </div>
-
-                    <div class="info-box">
-                        <strong>Note:</strong> Group Care requests can be submitted with or without funding.
-                        If you're only reporting the group's status without requesting funds, leave the budget section empty.
-                    </div>
-                </section>
-
-                <!-- Other Request Specific Fields -->
-                <section class="form-section event-specific" id="otherFields" style="display: none;">
-                    <h3>Other Request Details</h3>
-
-                    <div class="form-group">
-                        <label for="purposeDescription">Purpose / Description *</label>
-                        <textarea id="purposeDescription" name="purposeDescription" rows="6" required
-                                  placeholder="Explain what the funds will be used for:
-Examples:
-- Curriculum printing for multiple groups
-- Regional coordinator support for Q1
-- Translation services
-- Emergency operational needs"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="timePeriod">Time Period Covered</label>
-                        <input type="text" id="timePeriod" name="timePeriod"
-                               placeholder="e.g., Q1 2025, Annual 2025, Half Year 2025">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="groupsSupported">Groups or Activities Supported</label>
-                        <textarea id="groupsSupported" name="groupsSupported" rows="4"
-                                  placeholder="List which groups or activities these funds will support..."></textarea>
-                    </div>
-                </section>
-
-                <!-- Additional Notes -->
-                <section class="form-section">
-                    <h3>Additional Information</h3>
-
-                    <div class="form-group">
-                        <label for="additionalNotes">Notes or Comments</label>
-                        <textarea id="additionalNotes" name="additionalNotes" rows="4"
-                                  placeholder="Any other information you'd like to share..."></textarea>
-                    </div>
-                </section>
-
-                <!-- Submit Button -->
-                <section class="form-section">
-                    <div class="submit-section">
-                        <button type="submit" class="btn-primary">Submit Request</button>
-                        <button type="reset" class="btn-secondary">Clear Form</button>
-                    </div>
-                    <div id="formMessage" class="form-message" style="display: none;"></div>
-                </section>
-            </form>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 MomCo Africa. All rights reserved.</p>
-        </footer>
+        <div class="landing-footer">
+            <p data-i18n="footerText">&copy; 2025 MomCo Africa. All rights reserved.</p>
+        </div>
     </div>
 
     <script src="translations.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'en';
+
+        // Initialize language
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved language preference
+            const savedLang = localStorage.getItem('momcoLanguage');
+            if (savedLang) {
+                currentLanguage = savedLang;
+                applyLanguage(savedLang);
+                updateActiveButton(savedLang);
+            }
+
+            // Add click handlers to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    currentLanguage = lang;
+                    localStorage.setItem('momcoLanguage', lang);
+                    applyLanguage(lang);
+                    updateActiveButton(lang);
+                });
+            });
+        });
+
+        function updateActiveButton(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+        }
+
+        function applyLanguage(lang) {
+            const t = translations[lang] || translations.en;
+
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (t[key]) {
+                    element.textContent = t[key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>

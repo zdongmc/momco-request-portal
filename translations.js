@@ -5,13 +5,23 @@
 
 const translations = {
     en: {
+        // Landing Page
+        landingTitle: "MomCo Africa Portal",
+        landingSubtitle: "Supporting mothers and leaders across Africa",
+        requestFundsTitle: "Request Funds",
+        requestFundsDesc: "Submit a funding request for events, group launches, leadership training, or operational expenses",
+        requestFundsButton: "Get Started",
+        submitReportTitle: "Submit Report",
+        submitReportDesc: "Submit a post-event report with photos, attendance, and outcomes from your completed event",
+        submitReportButton: "Get Started",
+
         // Header
         title: "MomCo Africa",
         subtitle: "Event Request Portal",
         description: "Submit funding requests for events and group support",
 
         // Language Toggle
-        languageLabel: "Language / Langue:",
+        languageLabel: "Language / Langue / Idioma:",
 
         // Event Type Selection
         selectEventType: "Select Event Type",
@@ -177,13 +187,23 @@ For now, check the browser console to see your submitted data.`
     },
 
     fr: {
+        // Landing Page
+        landingTitle: "Portail MomCo Afrique",
+        landingSubtitle: "Soutenir les mères et les leaders à travers l'Afrique",
+        requestFundsTitle: "Demander des Fonds",
+        requestFundsDesc: "Soumettre une demande de financement pour des événements, lancements de groupes, formations de leadership ou dépenses opérationnelles",
+        requestFundsButton: "Commencer",
+        submitReportTitle: "Soumettre un Rapport",
+        submitReportDesc: "Soumettre un rapport post-événement avec photos, présence et résultats de votre événement terminé",
+        submitReportButton: "Commencer",
+
         // Header
         title: "MomCo Afrique",
         subtitle: "Portail de Demande d'Événements",
         description: "Soumettre des demandes de financement pour des événements et du soutien aux groupes",
 
         // Language Toggle
-        languageLabel: "Langue / Language:",
+        languageLabel: "Langue / Language / Idioma:",
 
         // Event Type Selection
         selectEventType: "Sélectionner le Type d'Événement",
@@ -349,6 +369,16 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
     },
 
     pt: {
+        // Landing Page
+        landingTitle: "Portal MomCo África",
+        landingSubtitle: "Apoiando mães e líderes em toda a África",
+        requestFundsTitle: "Solicitar Fundos",
+        requestFundsDesc: "Envie uma solicitação de financiamento para eventos, lançamentos de grupos, treinamento de liderança ou despesas operacionais",
+        requestFundsButton: "Começar",
+        submitReportTitle: "Enviar Relatório",
+        submitReportDesc: "Envie um relatório pós-evento com fotos, presença e resultados do seu evento concluído",
+        submitReportButton: "Começar",
+
         // Header
         title: "MomCo África",
         subtitle: "Portal de Solicitação de Eventos",
