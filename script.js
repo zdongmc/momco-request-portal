@@ -72,11 +72,307 @@ function applyLanguage(lang) {
         }
     });
 
+    // Translate all section headings (h3)
+    const headingMap = {
+        'Select Event Type': 'selectEventType',
+        'Sélectionner le Type d\'Événement': 'selectEventType',
+        'Selecionar Tipo de Evento': 'selectEventType',
+        'Requester Information': 'requesterInfo',
+        'Informations sur le Demandeur': 'requesterInfo',
+        'Informações do Solicitante': 'requesterInfo',
+        'Event Details': 'eventDetails',
+        'Détails de l\'Événement': 'eventDetails',
+        'Detalhes do Evento': 'eventDetails',
+        'Event Agenda': 'eventAgenda',
+        'Programme de l\'Événement': 'eventAgenda',
+        'Agenda do Evento': 'eventAgenda',
+        'Budget Request': 'budgetRequest',
+        'Demande de Budget': 'budgetRequest',
+        'Solicitação de Orçamento': 'budgetRequest',
+        'Group Launch Details': 'groupLaunchDetails',
+        'Détails du Lancement de Groupe': 'groupLaunchDetails',
+        'Detalhes do Lançamento de Grupo': 'groupLaunchDetails',
+        'Leadership Training Details': 'leadershipTrainingDetails',
+        'Détails de la Formation de Leadership': 'leadershipTrainingDetails',
+        'Detalhes do Treinamento de Liderança': 'leadershipTrainingDetails',
+        'Group Care Details': 'groupCareDetails',
+        'Détails des Soins aux Groupes': 'groupCareDetails',
+        'Detalhes do Cuidado de Grupo': 'groupCareDetails',
+        'Other Request Details': 'otherDetails',
+        'Détails de la Demande Autre': 'otherDetails',
+        'Detalhes de Outra Solicitação': 'otherDetails',
+        'Additional Information': 'additionalInfo',
+        'Informations Supplémentaires': 'additionalInfo',
+        'Informações Adicionais': 'additionalInfo'
+    };
+
+    // Translate all h3 headings
+    document.querySelectorAll('h3').forEach(h3 => {
+        if (!h3.hasAttribute('data-i18n')) {
+            const key = headingMap[h3.textContent.trim()];
+            if (key && t[key]) {
+                h3.textContent = t[key];
+            }
+        }
+    });
+
+    // Translate all labels
+    translateLabel('First Name', 'firstName', t);
+    translateLabel('Prénom', 'firstName', t);
+    translateLabel('Primeiro Nome', 'firstName', t);
+    translateLabel('Last Name', 'lastName', t);
+    translateLabel('Nom de Famille', 'lastName', t);
+    translateLabel('Sobrenome', 'lastName', t);
+    translateLabel('Country', 'country', t);
+    translateLabel('Pays', 'country', t);
+    translateLabel('País', 'country', t);
+    translateLabel('Email', 'email', t);
+    translateLabel('E-mail', 'email', t);
+    translateLabel('WhatsApp Number', 'whatsapp', t);
+    translateLabel('Numéro WhatsApp', 'whatsapp', t);
+    translateLabel('Número do WhatsApp', 'whatsapp', t);
+    translateLabel('Location / Venue', 'location', t);
+    translateLabel('Lieu / Salle', 'location', t);
+    translateLabel('Local / Espaço', 'location', t);
+    translateLabel('Date of Event', 'eventDate', t);
+    translateLabel('Date de l\'Événement', 'eventDate', t);
+    translateLabel('Data do Evento', 'eventDate', t);
+    translateLabel('Date Funds Needed By', 'fundsNeededDate', t);
+    translateLabel('Date Limite pour les Fonds', 'fundsNeededDate', t);
+    translateLabel('Data Limite para Fundos', 'fundsNeededDate', t);
+    translateLabel('Number of Participants Expected', 'participantsExpected', t);
+    translateLabel('Nombre de Participants Attendus', 'participantsExpected', t);
+    translateLabel('Número de Participantes Esperados', 'participantsExpected', t);
+    translateLabel('Send Funds To', 'sendFundsTo', t);
+    translateLabel('Envoyer les Fonds à', 'sendFundsTo', t);
+    translateLabel('Enviar Fundos Para', 'sendFundsTo', t);
+    translateLabel('Event Agenda', 'agendaLabel', t);
+    translateLabel('Programme de l\'Événement', 'agendaLabel', t);
+    translateLabel('Agenda do Evento', 'agendaLabel', t);
+    translateLabel('Itemized Budget', 'itemizedBudget', t);
+    translateLabel('Budget Détaillé', 'itemizedBudget', t);
+    translateLabel('Orçamento Detalhado', 'itemizedBudget', t);
+    translateLabel('Total Amount Requested', 'totalAmountRequested', t);
+    translateLabel('Montant Total Demandé', 'totalAmountRequested', t);
+    translateLabel('Valor Total Solicitado', 'totalAmountRequested', t);
+    translateLabel('Currency', 'currency', t);
+    translateLabel('Devise', 'currency', t);
+    translateLabel('Moeda', 'currency', t);
+    translateLabel('Notes or Comments', 'notes', t);
+    translateLabel('Notes ou Commentaires', 'notes', t);
+    translateLabel('Notas ou Comentários', 'notes', t);
+
+    // Group Launch specific labels
+    translateLabel('Number of Potential New Groups/Leaders', 'potentialGroups', t);
+    translateLabel('Nombre de Nouveaux Groupes/Leaders Potentiels', 'potentialGroups', t);
+    translateLabel('Número de Novos Grupos/Líderes Potenciais', 'potentialGroups', t);
+    translateLabel('Curriculum Copies Needed', 'curriculumCopies', t);
+    translateLabel('Copies de Curriculum Nécessaires', 'curriculumCopies', t);
+    translateLabel('Cópias de Currículo Necessárias', 'curriculumCopies', t);
+    translateLabel('Ministry Agreement Copies Needed', 'ministryAgreementCopies', t);
+    translateLabel('Copies d\'Accords de Ministère Nécessaires', 'ministryAgreementCopies', t);
+    translateLabel('Cópias de Acordos de Ministério Necessárias', 'ministryAgreementCopies', t);
+    translateLabel('Special Requests', 'specialRequests', t);
+    translateLabel('Demandes Spéciales', 'specialRequests', t);
+    translateLabel('Solicitações Especiais', 'specialRequests', t);
+
+    // Leadership Training specific labels
+    translateLabel('Attending Leaders', 'attendingLeaders', t);
+    translateLabel('Leaders Participants', 'attendingLeaders', t);
+    translateLabel('Líderes Participantes', 'attendingLeaders', t);
+    translateLabel('Training Topics', 'trainingTopics', t);
+    translateLabel('Sujets de Formation', 'trainingTopics', t);
+    translateLabel('Tópicos de Treinamento', 'trainingTopics', t);
+    translateLabel('Other Training Topics', 'otherTrainingTopics', t);
+    translateLabel('Autres Sujets de Formation', 'otherTrainingTopics', t);
+    translateLabel('Outros Tópicos de Treinamento', 'otherTrainingTopics', t);
+    translateLabel('Transportation, Lodging, or Meal Plans', 'logisticsNeeds', t);
+    translateLabel('Transport, Hébergement ou Plans de Repas', 'logisticsNeeds', t);
+    translateLabel('Transporte, Hospedagem ou Refeições', 'logisticsNeeds', t);
+
+    // Group Care specific labels
+    translateLabel('Group Name / Location', 'groupName', t);
+    translateLabel('Nom du Groupe / Lieu', 'groupName', t);
+    translateLabel('Nome do Grupo / Local', 'groupName', t);
+    translateLabel('Group Leader', 'groupLeader', t);
+    translateLabel('Leader du Groupe', 'groupLeader', t);
+    translateLabel('Líder do Grupo', 'groupLeader', t);
+    translateLabel('Number of Moms in Group', 'momsInGroup', t);
+    translateLabel('Nombre de Mamans dans le Groupe', 'momsInGroup', t);
+    translateLabel('Número de Mães no Grupo', 'momsInGroup', t);
+    translateLabel('Group Status', 'groupStatus', t);
+    translateLabel('Statut du Groupe', 'groupStatus', t);
+    translateLabel('Status do Grupo', 'groupStatus', t);
+    translateLabel('Explain Reason for This Status', 'statusExplanation', t);
+    translateLabel('Expliquer la Raison de ce Statut', 'statusExplanation', t);
+    translateLabel('Explicar o Motivo Deste Status', 'statusExplanation', t);
+    translateLabel('Support Needed', 'supportNeeded', t);
+    translateLabel('Soutien Nécessaire', 'supportNeeded', t);
+    translateLabel('Apoio Necessário', 'supportNeeded', t);
+    translateLabel('Purpose of Funding Request (if requesting funds)', 'fundingPurpose', t);
+    translateLabel('Objectif de la Demande de Financement (si demande de fonds)', 'fundingPurpose', t);
+    translateLabel('Objetivo da Solicitação de Financiamento (se solicitando fundos)', 'fundingPurpose', t);
+
+    // Other Request specific labels
+    translateLabel('Purpose / Description', 'purposeDescription', t);
+    translateLabel('Objectif / Description', 'purposeDescription', t);
+    translateLabel('Objetivo / Descrição', 'purposeDescription', t);
+    translateLabel('Time Period Covered', 'timePeriod', t);
+    translateLabel('Période Couverte', 'timePeriod', t);
+    translateLabel('Período Coberto', 'timePeriod', t);
+    translateLabel('Groups or Activities Supported', 'groupsSupported', t);
+    translateLabel('Groupes ou Activités Soutenus', 'groupsSupported', t);
+    translateLabel('Grupos ou Atividades Apoiados', 'groupsSupported', t);
+
+    // Translate training topic checkboxes
+    translateCheckboxLabel('Leadership Handbook, Mission & Vision', 'trainingHandbook', t);
+    translateCheckboxLabel('Manuel de Leadership, Mission et Vision', 'trainingHandbook', t);
+    translateCheckboxLabel('Manual de Liderança, Missão e Visão', 'trainingHandbook', t);
+    translateCheckboxLabel('Global Curriculum Resources', 'trainingCurriculum', t);
+    translateCheckboxLabel('Ressources Curriculaires Mondiales', 'trainingCurriculum', t);
+    translateCheckboxLabel('Recursos Curriculares Globais', 'trainingCurriculum', t);
+    translateCheckboxLabel('Key Aspects of a Meetup', 'trainingMeetup', t);
+    translateCheckboxLabel('Aspects Clés d\'une Rencontre', 'trainingMeetup', t);
+    translateCheckboxLabel('Aspectos Principais de um Encontro', 'trainingMeetup', t);
+    translateCheckboxLabel('MomCo Online Resources', 'trainingOnline', t);
+    translateCheckboxLabel('Ressources en Ligne MomCo', 'trainingOnline', t);
+    translateCheckboxLabel('Recursos Online MomCo', 'trainingOnline', t);
+    translateCheckboxLabel('General Leadership Training', 'trainingGeneral', t);
+    translateCheckboxLabel('Formation Générale de Leadership', 'trainingGeneral', t);
+    translateCheckboxLabel('Treinamento Geral de Liderança', 'trainingGeneral', t);
+    translateCheckboxLabel('Leadership Certification', 'trainingCertification', t);
+    translateCheckboxLabel('Certification de Leadership', 'trainingCertification', t);
+    translateCheckboxLabel('Certificação de Liderança', 'trainingCertification', t);
+    translateCheckboxLabel('Other (specify below)', 'trainingOtherOption', t);
+    translateCheckboxLabel('Autre (préciser ci-dessous)', 'trainingOtherOption', t);
+    translateCheckboxLabel('Outro (especificar abaixo)', 'trainingOtherOption', t);
+
+    // Translate status option labels
+    document.querySelectorAll('.status-option strong').forEach(strong => {
+        const text = strong.textContent.trim();
+        if (text === 'Green - Healthy' && t.statusGreen) strong.textContent = t.statusGreen;
+        if (text === 'Vert - En Bonne Santé' && t.statusGreen) strong.textContent = t.statusGreen;
+        if (text === 'Verde - Saudável' && t.statusGreen) strong.textContent = t.statusGreen;
+        if (text === 'Yellow - Struggling' && t.statusYellow) strong.textContent = t.statusYellow;
+        if (text === 'Jaune - En Difficulté' && t.statusYellow) strong.textContent = t.statusYellow;
+        if (text === 'Amarelo - Com Dificuldades' && t.statusYellow) strong.textContent = t.statusYellow;
+        if (text === 'Red - At Risk' && t.statusRed) strong.textContent = t.statusRed;
+        if (text === 'Rouge - À Risque' && t.statusRed) strong.textContent = t.statusRed;
+        if (text === 'Vermelho - Em Risco' && t.statusRed) strong.textContent = t.statusRed;
+    });
+
+    // Translate status descriptions
+    document.querySelectorAll('.status-option p').forEach(p => {
+        const text = p.textContent.trim();
+        if (text === 'Meeting regularly, using curriculum, leaders trained, thriving' && t.statusGreenDesc) p.textContent = t.statusGreenDesc;
+        if (text === 'Se réunit régulièrement, utilise le curriculum, leaders formés, prospère' && t.statusGreenDesc) p.textContent = t.statusGreenDesc;
+        if (text === 'Reunindo-se regularmente, usando currículo, líderes treinados, prosperando' && t.statusGreenDesc) p.textContent = t.statusGreenDesc;
+        if (text === 'Leadership issues, not using curriculum, irregular meetings' && t.statusYellowDesc) p.textContent = t.statusYellowDesc;
+        if (text === 'Problèmes de leadership, n\'utilise pas le curriculum, réunions irrégulières' && t.statusYellowDesc) p.textContent = t.statusYellowDesc;
+        if (text === 'Problemas de liderança, não usando currículo, reuniões irregulares' && t.statusYellowDesc) p.textContent = t.statusYellowDesc;
+        if (text === 'Not meeting, unresponsive for 4+ months, likely to close' && t.statusRedDesc) p.textContent = t.statusRedDesc;
+        if (text === 'Ne se réunit pas, sans réponse depuis 4+ mois, risque de fermeture' && t.statusRedDesc) p.textContent = t.statusRedDesc;
+        if (text === 'Não se reunindo, sem resposta há 4+ meses, provavelmente fechará' && t.statusRedDesc) p.textContent = t.statusRedDesc;
+    });
+
+    // Translate info boxes
+    document.querySelectorAll('.info-box').forEach(box => {
+        if (box.textContent.includes('Note:') && box.textContent.includes('Group Care')) {
+            box.innerHTML = '<strong>Note:</strong> ' + t.groupCareNote;
+        }
+    });
+
+    // Translate buttons
+    translateButton('Submit Request', 'submitRequest', t);
+    translateButton('Soumettre la Demande', 'submitRequest', t);
+    translateButton('Enviar Solicitação', 'submitRequest', t);
+    translateButton('Clear Form', 'clearForm', t);
+    translateButton('Effacer le Formulaire', 'clearForm', t);
+    translateButton('Limpar Formulário', 'clearForm', t);
+    translateButton('Load Group Launch Template', 'loadGroupLaunchTemplate', t);
+    translateButton('Charger le Modèle de Lancement de Groupe', 'loadGroupLaunchTemplate', t);
+    translateButton('Carregar Modelo de Lançamento de Grupo', 'loadGroupLaunchTemplate', t);
+    translateButton('Load Leadership Training Template', 'loadLeadershipTemplate', t);
+    translateButton('Charger le Modèle de Formation de Leadership', 'loadLeadershipTemplate', t);
+    translateButton('Carregar Modelo de Treinamento de Liderança', 'loadLeadershipTemplate', t);
+
+    // Translate small help text
+    document.querySelectorAll('small.help-text').forEach(small => {
+        const text = small.textContent.trim();
+        const helpMap = {
+            'Compound names like "Faith Rose" are OK': 'firstNameHelp',
+            'Les prénoms composés comme "Faith Rose" sont OK': 'firstNameHelp',
+            'Nomes compostos como "Faith Rose" são OK': 'firstNameHelp',
+            'When will the event take place?': 'eventDateHelp',
+            'Quand l\'événement aura-t-il lieu?': 'eventDateHelp',
+            'Quando o evento ocorrerá?': 'eventDateHelp',
+            'At least 2-3 weeks before event': 'fundsNeededHelp',
+            'Au moins 2-3 semaines avant l\'événement': 'fundsNeededHelp',
+            'Pelo menos 2-3 semanas antes do evento': 'fundsNeededHelp',
+            'May be different from requester': 'sendFundsToHelp',
+            'Peut être différent du demandeur': 'sendFundsToHelp',
+            'Pode ser diferente do solicitante': 'sendFundsToHelp',
+            'List your event schedule with times and activities': 'agendaHelp',
+            'Listez le programme de votre événement avec les heures et activités': 'agendaHelp',
+            'Liste a programação do evento com horários e atividades': 'agendaHelp',
+            'List each budget item with amounts': 'budgetHelp',
+            'Listez chaque poste budgétaire avec les montants': 'budgetHelp',
+            'Liste cada item do orçamento com valores': 'budgetHelp',
+            'Auto-selected based on country': 'currencyAutoSelected',
+            'Sélectionné automatiquement selon le pays': 'currencyAutoSelected',
+            'Selecionado automaticamente com base no país': 'currencyAutoSelected'
+        };
+        const key = helpMap[text];
+        if (key && t[key]) {
+            small.textContent = t[key];
+        }
+    });
+
+    // Translate select options
+    const selectCountry = document.querySelector('#country option[value=""]');
+    if (selectCountry && t.selectCountry) {
+        selectCountry.textContent = t.selectCountry;
+    }
+
+    const selectCurrency = document.querySelector('#currency option[value=""]');
+    if (selectCurrency && t.currencySelectDefault) {
+        selectCurrency.textContent = t.currencySelectDefault;
+    }
+
     // Update footer
     const footer = document.querySelector('footer p');
     if (footer && t.footerText) {
         footer.textContent = t.footerText;
     }
+}
+
+function translateLabel(originalText, key, t) {
+    document.querySelectorAll('label').forEach(label => {
+        const text = label.textContent.trim();
+        if (text.startsWith(originalText) && t[key]) {
+            // Keep the asterisk if present
+            const hasAsterisk = text.includes('*');
+            label.textContent = t[key] + (hasAsterisk ? ' *' : '');
+        }
+    });
+}
+
+function translateButton(originalText, key, t) {
+    document.querySelectorAll('button').forEach(btn => {
+        if (btn.textContent.trim() === originalText && t[key]) {
+            btn.textContent = t[key];
+        }
+    });
+}
+
+function translateCheckboxLabel(originalText, key, t) {
+    document.querySelectorAll('.checkbox-label').forEach(label => {
+        // Get text content excluding the input element
+        const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+        if (textNode && textNode.textContent.trim() === originalText && t[key]) {
+            textNode.textContent = ' ' + t[key];
+        }
+    });
 }
 
 function getTranslation(key) {
@@ -187,9 +483,8 @@ function attachEventListeners() {
     eventDateInput.addEventListener('change', validateDates);
     fundsNeededDateInput.addEventListener('change', validateDates);
 
-    // Name validation (first names only)
-    const requesterNameInput = document.getElementById('requesterName');
-    requesterNameInput.addEventListener('blur', validateRequesterName);
+    // Name validation - removed as we now have separate first/last name fields
+    // No special validation needed for name fields
 }
 
 /**
@@ -361,23 +656,7 @@ function validateDates() {
     return true;
 }
 
-/**
- * Validate requester name (first names only)
- */
-function validateRequesterName() {
-    const nameInput = document.getElementById('requesterName');
-    const name = nameInput.value.trim();
-
-    // Allow compound names like "Faith Rose" but warn about full names
-    const words = name.split(/\s+/);
-
-    if (words.length > 2) {
-        showValidationWarning('requesterName',
-            'Typically only first name is needed (compound names like "Faith Rose" are OK)');
-    } else {
-        clearValidationMessage('requesterName');
-    }
-}
+// validateRequesterName function removed - no longer needed with separate first/last name fields
 
 /**
  * Show validation error
@@ -492,7 +771,8 @@ function generateFilename(data) {
     const year = date.getFullYear();
 
     const country = data.country || 'Unknown';
-    const name = data.requesterName || 'Unknown';
+    // Use only first name in file naming convention
+    const name = data.firstName || 'Unknown';
 
     let eventType = '';
     switch(data.eventType) {

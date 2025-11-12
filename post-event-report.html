@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MomCo Africa - Post-Event Report Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-toggle">
+                <span class="language-label" data-i18n="languageLabel">Language / Langue / Idioma:</span>
+                <button type="button" class="lang-btn active" data-lang="en">English</button>
+                <button type="button" class="lang-btn" data-lang="fr">Français</button>
+                <button type="button" class="lang-btn" data-lang="pt">Português</button>
+            </div>
+            <h1 data-i18n="title">MomCo Africa</h1>
+            <h2 data-i18n="reportSubtitle">Post-Event Report Portal</h2>
+            <p class="subtitle" data-i18n="reportDescription">Submit reports after your event to share outcomes and impact</p>
+        </header>
+
+        <main>
+            <form id="reportForm" class="request-form">
+                <!-- Event Identification -->
+                <section class="form-section">
+                    <h3 data-i18n="eventIdentification">Event Identification</h3>
+                    <p class="info-text" data-i18n="identificationHelp">Help us match this report to your original event request</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="reporterFirstName"><span data-i18n="firstName">First Name</span> *</label>
+                            <input type="text" id="reporterFirstName" name="reporterFirstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reporterLastName"><span data-i18n="lastName">Last Name</span> *</label>
+                            <input type="text" id="reporterLastName" name="reporterLastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country"><span data-i18n="country">Country</span> *</label>
+                            <select id="country" name="country" required>
+                                <option value="" data-i18n="selectCountry">-- Select Country --</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                                <option value="DRC">DRC (Democratic Republic of Congo)</option>
+                                <option value="East Uganda">East Uganda</option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Libya">Libya</option>
+                                <option value="Mali">Mali</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Togo">Togo</option>
+                                <option value="West Uganda">West Uganda</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="French Africa">French Africa (Other)</option>
+                                <option value="English Africa">English Africa (Other)</option>
+                                <option value="Portuguese Africa">Portuguese Africa</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventType"><span data-i18n="eventType">Event Type</span> *</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">-- Select Event Type --</option>
+                                <option value="group-launch">Group Launch / Outreach</option>
+                                <option value="leadership-training">Leadership Training</option>
+                                <option value="group-care">Group Care</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="originalRequestDate"><span data-i18n="originalRequestDate">When did you submit the original request?</span></label>
+                        <input type="month" id="originalRequestDate" name="originalRequestDate"
+                               placeholder="e.g., 2025-01">
+                        <small class="help-text" data-i18n="originalRequestHelp">Approximate month/year helps us find your request</small>
+                    </div>
+                </section>
+
+                <!-- Event Outcomes -->
+                <section class="form-section">
+                    <h3 data-i18n="eventOutcomes">Event Outcomes</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="actualEventDate"><span data-i18n="actualEventDate">Actual Date(s) of Event</span> *</label>
+                            <input type="date" id="actualEventDate" name="actualEventDate" required>
+                            <small class="help-text" data-i18n="actualEventDateHelp">When did the event actually happen?</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventEndDate"><span data-i18n="eventEndDate">End Date (if multi-day event)</span></label>
+                            <input type="date" id="eventEndDate" name="eventEndDate">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="actualParticipants"><span data-i18n="actualParticipants">Actual Number of Participants</span> *</label>
+                            <input type="number" id="actualParticipants" name="actualParticipants"
+                                   min="1" required placeholder="e.g., 35">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="actualLocation"><span data-i18n="actualLocation">Actual Location / Venue</span> *</label>
+                            <input type="text" id="actualLocation" name="actualLocation" required
+                                   placeholder="e.g., Nairobi Community Center">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Group Launch Specific Results -->
+                <section class="form-section event-specific" id="groupLaunchResults" style="display: none;">
+                    <h3 data-i18n="groupLaunchResults">Group Launch Results</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ministryAgreementsSigned"><span data-i18n="ministryAgreementsSigned">Ministry Agreements Signed</span> *</label>
+                            <input type="number" id="ministryAgreementsSigned" name="ministryAgreementsSigned"
+                                   min="0" placeholder="e.g., 25">
+                            <small class="help-text" data-i18n="ministryAgreementsHelp">Number of leaders who signed ministry agreements</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newGroupsStarted"><span data-i18n="newGroupsStarted">New Groups Started</span></label>
+                            <input type="number" id="newGroupsStarted" name="newGroupsStarted"
+                                   min="0" placeholder="e.g., 5">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="villagesVisited"><span data-i18n="villagesVisited">Villages/Communities Visited</span></label>
+                        <textarea id="villagesVisited" name="villagesVisited" rows="3"
+                                  placeholder="List the villages or communities where you presented MomCo..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newLeaderNames"><span data-i18n="newLeaderNames">New Leader Names and Contact Info</span></label>
+                        <textarea id="newLeaderNames" name="newLeaderNames" rows="5"
+                                  placeholder="List new leaders with their contact information:
+Example:
+Sarah Mwangi - +254 712 345 678 - Nairobi Group 1
+Mary Kimani - +254 723 456 789 - Nairobi Group 2"></textarea>
+                    </div>
+                </section>
+
+                <!-- Leadership Training Specific Results -->
+                <section class="form-section event-specific" id="leadershipTrainingResults" style="display: none;">
+                    <h3 data-i18n="leadershipTrainingResults">Leadership Training Results</h3>
+
+                    <div class="form-group">
+                        <label for="leadersAttended"><span data-i18n="leadersAttended">Leaders Who Attended</span> *</label>
+                        <textarea id="leadersAttended" name="leadersAttended" rows="5" required
+                                  placeholder="List leaders who attended and their groups:
+Example:
+Sarah - Nairobi Group 1
+Mary - Kisumu Leaders
+Grace - Machakos Community"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topicsCovered"><span data-i18n="topicsCovered">Training Topics Covered</span> *</label>
+                        <textarea id="topicsCovered" name="topicsCovered" rows="4" required
+                                  placeholder="List the main topics covered during the training..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="keyLearnings"><span data-i18n="keyLearnings">Key Learnings & Takeaways</span></label>
+                        <textarea id="keyLearnings" name="keyLearnings" rows="4"
+                                  placeholder="What were the most important insights or lessons learned?"></textarea>
+                    </div>
+                </section>
+
+                <!-- Group Care Specific Results -->
+                <section class="form-section event-specific" id="groupCareResults" style="display: none;">
+                    <h3 data-i18n="groupCareResults">Group Care Results</h3>
+
+                    <div class="form-group">
+                        <label for="groupVisited"><span data-i18n="groupVisited">Group Visited</span> *</label>
+                        <input type="text" id="groupVisited" name="groupVisited" required
+                               placeholder="e.g., Kisumu Leaders Group">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentStatus"><span data-i18n="currentStatus">Current Group Status</span> *</label>
+                        <div class="status-selector">
+                            <label class="status-option status-green">
+                                <input type="radio" name="currentStatus" value="green" required>
+                                <div class="status-content">
+                                    <span class="status-icon">🟢</span>
+                                    <div>
+                                        <strong data-i18n="statusGreen">Green - Healthy</strong>
+                                        <p data-i18n="statusGreenDesc">Meeting regularly, using curriculum, leaders trained, thriving</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="status-option status-yellow">
+                                <input type="radio" name="currentStatus" value="yellow">
+                                <div class="status-content">
+                                    <span class="status-icon">🟡</span>
+                                    <div>
+                                        <strong data-i18n="statusYellow">Yellow - Struggling</strong>
+                                        <p data-i18n="statusYellowDesc">Leadership issues, not using curriculum, irregular meetings</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="status-option status-red">
+                                <input type="radio" name="currentStatus" value="red">
+                                <div class="status-content">
+                                    <span class="status-icon">🔴</span>
+                                    <div>
+                                        <strong data-i18n="statusRed">Red - At Risk</strong>
+                                        <p data-i18n="statusRedDesc">Not meeting, unresponsive for 4+ months, likely to close</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supportProvided"><span data-i18n="supportProvided">Support Provided</span> *</label>
+                        <textarea id="supportProvided" name="supportProvided" rows="4" required
+                                  placeholder="What support, encouragement, or resources did you provide to this group?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="followUpNeeded"><span data-i18n="followUpNeeded">Follow-up Needed</span></label>
+                        <textarea id="followUpNeeded" name="followUpNeeded" rows="3"
+                                  placeholder="What additional support or follow-up does this group need?"></textarea>
+                    </div>
+                </section>
+
+                <!-- Event Summary -->
+                <section class="form-section">
+                    <h3 data-i18n="eventSummary">Event Summary</h3>
+
+                    <div class="form-group">
+                        <label for="eventHighlights"><span data-i18n="eventHighlights">Event Highlights & Successes</span> *</label>
+                        <textarea id="eventHighlights" name="eventHighlights" rows="6" required
+                                  placeholder="Share the highlights, success stories, and positive moments from the event..."></textarea>
+                        <small class="help-text" data-i18n="eventHighlightsHelp">What went well? Any inspiring stories or testimonies?</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="challenges"><span data-i18n="challenges">Challenges Faced</span></label>
+                        <textarea id="challenges" name="challenges" rows="4"
+                                  placeholder="Were there any challenges, obstacles, or unexpected difficulties?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lessonsLearned"><span data-i18n="lessonsLearned">Lessons Learned</span></label>
+                        <textarea id="lessonsLearned" name="lessonsLearned" rows="4"
+                                  placeholder="What would you do differently next time? What advice would you give to others?"></textarea>
+                    </div>
+                </section>
+
+                <!-- Budget & Resources -->
+                <section class="form-section">
+                    <h3 data-i18n="budgetResourcesUsed">Budget & Resources Used</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amountReceived"><span data-i18n="amountReceived">Amount Received</span> *</label>
+                            <input type="number" id="amountReceived" name="amountReceived"
+                                   step="0.01" min="0" required placeholder="0.00">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="currency"><span data-i18n="currency">Currency</span> *</label>
+                            <select id="currency" name="currency" required>
+                                <option value="">-- Auto-selected --</option>
+                                <option value="KSH">KSH (Kenyan Shilling)</option>
+                                <option value="GHS">GHS (Ghanaian Cedi)</option>
+                                <option value="USD">USD (US Dollar)</option>
+                                <option value="UGX">UGX (Ugandan Shilling)</option>
+                                <option value="RWF">RWF (Rwandan Franc)</option>
+                                <option value="ZMW">ZMW (Zambian Kwacha)</option>
+                                <option value="XOF">XOF (West African CFA Franc)</option>
+                                <option value="NGN">NGN (Nigerian Naira)</option>
+                                <option value="ZAR">ZAR (South African Rand)</option>
+                                <option value="TZS">TZS (Tanzanian Shilling)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="actualExpenses"><span data-i18n="actualExpenses">Actual Expenses Breakdown</span> *</label>
+                        <textarea id="actualExpenses" name="actualExpenses" rows="8" required
+                                  placeholder="Provide itemized list of how funds were used:
+Example:
+Curriculum printing: 5,500 KSH
+Snacks and refreshments: 3,200 KSH
+Transportation for leaders: 2,000 KSH
+Venue rental: 1,500 KSH
+Total: 12,200 KSH"></textarea>
+                        <small class="help-text" data-i18n="actualExpensesHelp">List each expense with actual amounts spent</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budgetVariance"><span data-i18n="budgetVariance">Budget Variance Explanation</span></label>
+                        <textarea id="budgetVariance" name="budgetVariance" rows="3"
+                                  placeholder="If actual spending differed significantly from the budget, please explain why..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Photos & Documentation -->
+                <section class="form-section">
+                    <h3 data-i18n="photosDocumentation">Photos & Documentation</h3>
+                    <p class="info-text" data-i18n="photoOptionsHelp">You can either upload photos directly or provide links to photos stored elsewhere</p>
+
+                    <!-- Option 1: Upload Photos -->
+                    <div class="form-group">
+                        <label for="photoUpload"><span data-i18n="uploadPhotos">Upload Event Photos</span></label>
+                        <input type="file" id="photoUpload" name="photoUpload"
+                               accept="image/*" multiple
+                               class="file-input">
+                        <small class="help-text" data-i18n="uploadPhotosHelp">Select multiple photos (JPG, PNG, etc.). Max 10 files, 5MB each.</small>
+                        <div id="photoPreview" class="file-preview"></div>
+                    </div>
+
+                    <div class="or-divider">
+                        <span data-i18n="orDivider">OR</span>
+                    </div>
+
+                    <!-- Option 2: Provide Links -->
+                    <div class="form-group">
+                        <label for="photoLinks"><span data-i18n="photoLinks">Photo Links (Google Drive, Dropbox, etc.)</span></label>
+                        <textarea id="photoLinks" name="photoLinks" rows="4"
+                                  placeholder="Paste links to photos from the event (one link per line):
+https://drive.google.com/...
+https://www.dropbox.com/..."></textarea>
+                        <small class="help-text" data-i18n="photoLinksHelp">Share links to event photos already stored in cloud storage</small>
+                    </div>
+
+                    <!-- Optional: Upload Supporting Documents -->
+                    <div class="form-group">
+                        <label for="documentUpload"><span data-i18n="uploadDocuments">Upload Supporting Documents (Optional)</span></label>
+                        <input type="file" id="documentUpload" name="documentUpload"
+                               accept=".pdf,.doc,.docx,.xls,.xlsx" multiple
+                               class="file-input">
+                        <small class="help-text" data-i18n="uploadDocumentsHelp">Upload receipts, attendance sheets, or other documents (PDF, Word, Excel). Max 5 files, 10MB each.</small>
+                        <div id="documentPreview" class="file-preview"></div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong data-i18n="noteLabel">Note:</strong> <span data-i18n="photoNote">Uploaded files will be saved to Google Drive. If providing links, ensure they are publicly accessible or shared with MomCo GMD team.</span>
+                    </div>
+                </section>
+
+                <!-- Next Steps & Follow-up -->
+                <section class="form-section">
+                    <h3 data-i18n="nextSteps">Next Steps & Follow-up</h3>
+
+                    <div class="form-group">
+                        <label for="plannedFollowUp"><span data-i18n="plannedFollowUp">Planned Follow-up Actions</span></label>
+                        <textarea id="plannedFollowUp" name="plannedFollowUp" rows="4"
+                                  placeholder="What follow-up actions are planned with participants or new leaders?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="futureRequests"><span data-i18n="futureRequests">Future Event Requests</span></label>
+                        <textarea id="futureRequests" name="futureRequests" rows="3"
+                                  placeholder="Are you planning any future events or activities that will need support?"></textarea>
+                    </div>
+                </section>
+
+                <!-- Additional Notes -->
+                <section class="form-section">
+                    <h3 data-i18n="additionalInfo">Additional Information</h3>
+
+                    <div class="form-group">
+                        <label for="additionalNotes"><span data-i18n="notes">Notes or Comments</span></label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4"
+                                  placeholder="Any other information you'd like to share..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><span data-i18n="email">Email</span> *</label>
+                        <input type="email" id="email" name="email" required
+                               placeholder="your@email.com">
+                        <small class="help-text" data-i18n="emailHelp">We may contact you for clarification or follow-up</small>
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <section class="form-section">
+                    <div class="submit-section">
+                        <button type="submit" class="btn-primary" data-i18n="submitReport">Submit Report</button>
+                        <button type="reset" class="btn-secondary" data-i18n="clearForm">Clear Form</button>
+                    </div>
+                    <div id="formMessage" class="form-message" style="display: none;"></div>
+                </section>
+            </form>
+        </main>
+
+        <footer>
+            <p data-i18n="footerText">&copy; 2025 MomCo Africa. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="translations-report.js"></script>
+    <script src="script-report.js"></script>
+</body>
+</html>

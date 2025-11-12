@@ -24,37 +24,37 @@
             <form id="requestForm" class="request-form">
                 <!-- Event Type Selection -->
                 <section class="form-section">
-                    <h3>Select Event Type</h3>
+                    <h3 data-i18n="selectEventType">Select Event Type</h3>
                     <div class="event-type-selector">
                         <label class="event-type-card">
                             <input type="radio" name="eventType" value="group-launch" required>
                             <div class="card-content">
-                                <h4>Group Launch / Outreach</h4>
-                                <p>Launch new MomCo groups and present mission to potential leaders</p>
+                                <h4 data-i18n="groupLaunchTitle">Group Launch / Outreach</h4>
+                                <p data-i18n="groupLaunchDesc">Launch new MomCo groups and present mission to potential leaders</p>
                             </div>
                         </label>
 
                         <label class="event-type-card">
                             <input type="radio" name="eventType" value="leadership-training" required>
                             <div class="card-content">
-                                <h4>Leadership Training</h4>
-                                <p>Training for existing leaders, team building, and goal setting</p>
+                                <h4 data-i18n="leadershipTrainingTitle">Leadership Training</h4>
+                                <p data-i18n="leadershipTrainingDesc">Training for existing leaders, team building, and goal setting</p>
                             </div>
                         </label>
 
                         <label class="event-type-card">
                             <input type="radio" name="eventType" value="group-care" required>
                             <div class="card-content">
-                                <h4>Group Care</h4>
-                                <p>Support and monitoring for existing groups (optional funding)</p>
+                                <h4 data-i18n="groupCareTitle">Group Care</h4>
+                                <p data-i18n="groupCareDesc">Support and monitoring for existing groups (optional funding)</p>
                             </div>
                         </label>
 
                         <label class="event-type-card">
                             <input type="radio" name="eventType" value="other" required>
                             <div class="card-content">
-                                <h4>Other</h4>
-                                <p>Operational expenses (curriculum, coordination, etc.)</p>
+                                <h4 data-i18n="otherTitle">Other</h4>
+                                <p data-i18n="otherDesc">Operational expenses (curriculum, coordination, etc.)</p>
                             </div>
                         </label>
                     </div>
@@ -62,19 +62,24 @@
 
                 <!-- Requester Information -->
                 <section class="form-section">
-                    <h3>Requester Information</h3>
+                    <h3 data-i18n="requesterInfo">Requester Information</h3>
 
-                    <div class="form-group">
-                        <label for="requesterName">Your First Name *</label>
-                        <input type="text" id="requesterName" name="requesterName" required
-                               placeholder="e.g., Julie, Harriet, Faith Rose">
-                        <small class="help-text">First name only (compound names like "Faith Rose" are OK)</small>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName"><span data-i18n="firstName">First Name</span> *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName"><span data-i18n="lastName">Last Name</span> *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="country">Country *</label>
+                        <label for="country"><span data-i18n="country">Country</span> *</label>
                         <select id="country" name="country" required>
-                            <option value="">-- Select Country --</option>
+                            <option value="" data-i18n="selectCountry">-- Select Country --</option>
                             <option value="Benin">Benin</option>
                             <option value="Burkina Faso">Burkina Faso</option>
                             <option value="Côte d'Ivoire">Côte d'Ivoire</option>
@@ -99,13 +104,13 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email *</label>
+                            <label for="email"><span data-i18n="email">Email</span> *</label>
                             <input type="email" id="email" name="email" required
                                    placeholder="your@email.com">
                         </div>
 
                         <div class="form-group">
-                            <label for="whatsapp">WhatsApp Number</label>
+                            <label for="whatsapp" data-i18n="whatsapp">WhatsApp Number</label>
                             <input type="tel" id="whatsapp" name="whatsapp"
                                    placeholder="+254 712 345 678">
                         </div>
@@ -114,39 +119,39 @@
 
                 <!-- Event Details (Common) -->
                 <section class="form-section" id="eventDetailsSection">
-                    <h3>Event Details</h3>
+                    <h3 data-i18n="eventDetails">Event Details</h3>
 
                     <div class="form-group">
-                        <label for="location">Location / Venue *</label>
+                        <label for="location"><span data-i18n="location">Location / Venue</span> *</label>
                         <input type="text" id="location" name="location" required
-                               placeholder="e.g., Nairobi, Kisumu Community Church">
+                               data-i18n-placeholder="locationPlaceholder" placeholder="e.g., Nairobi, Kisumu Community Church">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="eventDate">Date of Event *</label>
+                            <label for="eventDate"><span data-i18n="eventDate">Date of Event</span> *</label>
                             <input type="date" id="eventDate" name="eventDate" required>
-                            <small class="help-text">When will the event take place?</small>
+                            <small class="help-text" data-i18n="eventDateHelp">When will the event take place?</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="fundsNeededDate">Date Funds Needed By *</label>
+                            <label for="fundsNeededDate"><span data-i18n="fundsNeededDate">Date Funds Needed By</span> *</label>
                             <input type="date" id="fundsNeededDate" name="fundsNeededDate" required>
-                            <small class="help-text">At least 2-3 weeks before event</small>
+                            <small class="help-text" data-i18n="fundsNeededHelp">At least 2-3 weeks before event</small>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="participantsExpected">Number of Participants Expected *</label>
+                        <label for="participantsExpected"><span data-i18n="participantsExpected">Number of Participants Expected</span> *</label>
                         <input type="number" id="participantsExpected" name="participantsExpected"
                                min="1" required placeholder="e.g., 25">
                     </div>
 
                     <div class="form-group">
-                        <label for="sendFundsTo">Send Funds To *</label>
+                        <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
                         <input type="text" id="sendFundsTo" name="sendFundsTo" required
-                               placeholder="Name of person who will receive the transfer">
-                        <small class="help-text">May be different from requester</small>
+                               data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
+                        <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
                     </div>
                 </section>
 

@@ -26,8 +26,11 @@ const translations = {
 
         // Requester Information
         requesterInfo: "Requester Information",
-        yourFirstName: "Your First Name",
-        firstNameHelp: "First name only (compound names like \"Faith Rose\" are OK)",
+        firstName: "First Name",
+        firstNamePlaceholder: "e.g., Julie, Faith Rose",
+        firstNameHelp: "Compound names like \"Faith Rose\" are OK",
+        lastName: "Last Name",
+        lastNamePlaceholder: "e.g., Pemba, Balica",
         country: "Country",
         selectCountry: "-- Select Country --",
         email: "Email",
@@ -195,8 +198,11 @@ For now, check the browser console to see your submitted data.`
 
         // Requester Information
         requesterInfo: "Informations sur le Demandeur",
-        yourFirstName: "Votre Prénom",
-        firstNameHelp: "Prénom uniquement (les prénoms composés comme \"Faith Rose\" sont OK)",
+        firstName: "Prénom",
+        firstNamePlaceholder: "par ex., Julie, Faith Rose",
+        firstNameHelp: "Les prénoms composés comme \"Faith Rose\" sont OK",
+        lastName: "Nom de Famille",
+        lastNamePlaceholder: "par ex., Pemba, Balica",
         country: "Pays",
         selectCountry: "-- Sélectionner un Pays --",
         email: "Email",
@@ -364,8 +370,11 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
 
         // Requester Information
         requesterInfo: "Informações do Solicitante",
-        yourFirstName: "Seu Primeiro Nome",
-        firstNameHelp: "Apenas primeiro nome (nomes compostos como \"Faith Rose\" são OK)",
+        firstName: "Primeiro Nome",
+        firstNamePlaceholder: "ex., Julie, Faith Rose",
+        firstNameHelp: "Nomes compostos como \"Faith Rose\" são OK",
+        lastName: "Sobrenome",
+        lastNamePlaceholder: "ex., Pemba, Balica",
         country: "País",
         selectCountry: "-- Selecionar País --",
         email: "E-mail",

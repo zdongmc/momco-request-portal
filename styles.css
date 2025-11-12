@@ -610,3 +610,176 @@ footer {
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
+/* ========================================
+   File Upload Styles
+   ======================================== */
+
+/* File input styling */
+.file-input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.file-input:hover {
+    border-color: var(--primary-color);
+    background-color: #eff6ff;
+}
+
+.file-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Custom file input label */
+.file-input::file-selector-button {
+    padding: 8px 16px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* File preview container */
+.file-preview {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.file-preview-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    max-width: 100%;
+}
+
+.file-preview-item.image {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+}
+
+.file-preview-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.file-preview-name {
+    font-size: 13px;
+    color: var(--text-dark);
+    word-break: break-word;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-preview-size {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-left: 8px;
+}
+
+.file-preview-remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+}
+
+.file-preview-remove:hover {
+    background-color: #dc2626;
+}
+
+.file-preview-icon {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* OR divider */
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 24px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.or-divider span {
+    padding: 0 16px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* Info text */
+.info-text {
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+/* File upload validation */
+.file-error {
+    color: var(--danger-color);
+    font-size: 14px;
+    margin-top: 8px;
+    display: none;
+}
+
+.file-error.show {
+    display: block;
+}
+
+/* Note label */
+[data-i18n="noteLabel"] {
+    font-weight: 600;
+}
