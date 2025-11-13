@@ -280,13 +280,6 @@ function applyLanguage(lang) {
         if (text === 'Não se reunindo, sem resposta há 4+ meses, provavelmente fechará' && t.statusRedDesc) p.textContent = t.statusRedDesc;
     });
 
-    // Translate info boxes
-    document.querySelectorAll('.info-box').forEach(box => {
-        if (box.textContent.includes('Note:') && box.textContent.includes('Group Care')) {
-            box.innerHTML = '<strong>Note:</strong> ' + t.groupCareNote;
-        }
-    });
-
     // Translate buttons
     translateButton('Submit Request', 'submitRequest', t);
     translateButton('Soumettre la Demande', 'submitRequest', t);
@@ -618,12 +611,17 @@ function setGroupCareFieldsRequired() {
 }
 
 /**
- * Make Group Care budget fields optional
+ * Make Group Care budget fields and agenda optional
  */
 function makeGroupCareBudgetOptional() {
     // Budget can be empty for monitoring-only Group Care
     document.getElementById('budget').removeAttribute('required');
     document.getElementById('amountRequested').removeAttribute('required');
+    document.getElementById('currency').removeAttribute('required');
+    document.getElementById('sendFundsTo').removeAttribute('required');
+
+    // Agenda is not needed for group care
+    document.getElementById('agenda').removeAttribute('required');
 
     // Event date can be blank for monitoring
     document.getElementById('eventDate').removeAttribute('required');

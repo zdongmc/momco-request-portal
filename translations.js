@@ -171,7 +171,7 @@ e.g., Transportation from rural areas, Overnight lodging for 2 nights, Meals for
         fundingPurpose: "Purpose of Funding Request (if requesting funds)",
         fundingPurposePlaceholder: "Optional - Examples: Curriculum materials, Leader encouragement event, Meeting space rental, Transportation assistance, Emergency support",
         fundingPurposeHelp: "Leave blank if this is monitoring only (no funding needed)",
-        groupCareNote: "Note: Group Care requests can be submitted with or without funding. If you're only reporting the group's status without requesting funds, leave the budget section empty.",
+        groupCareNote: "<strong>Note:</strong> Group Care requests can be submitted with or without funding. If you're only reporting the group's status without requesting funds, leave the budget section empty.",
 
         // Other Request Details
         otherDetails: "Other Request Details",
@@ -386,7 +386,7 @@ par ex., Transport depuis les zones rurales, Hébergement pour 2 nuits, Repas po
         fundingPurpose: "Objectif de la Demande de Financement (si demande de fonds)",
         fundingPurposePlaceholder: "Optionnel - Exemples: Matériels curriculaires, Événement d'encouragement des leaders, Location de salle de réunion, Assistance au transport, Soutien d'urgence",
         fundingPurposeHelp: "Laisser vide s'il s'agit uniquement de surveillance (pas de financement nécessaire)",
-        groupCareNote: "Note: Les demandes de soins aux groupes peuvent être soumises avec ou sans financement. Si vous signalez uniquement le statut du groupe sans demander de fonds, laissez la section budget vide.",
+        groupCareNote: "<strong>Note:</strong> Les demandes de soins aux groupes peuvent être soumises avec ou sans financement. Si vous signalez uniquement le statut du groupe sans demander de fonds, laissez la section budget vide.",
 
         // Other Request Details
         otherDetails: "Détails de la Demande Autre",
@@ -601,7 +601,7 @@ ex., Transporte de áreas rurais, Hospedagem para 2 noites, Refeições para 20 
         fundingPurpose: "Objetivo da Solicitação de Financiamento (se solicitando fundos)",
         fundingPurposePlaceholder: "Opcional - Exemplos: Materiais curriculares, Evento de encorajamento de líderes, Aluguel de espaço, Assistência de transporte, Apoio de emergência",
         fundingPurposeHelp: "Deixe em branco se for apenas monitoramento (sem necessidade de financiamento)",
-        groupCareNote: "Nota: Solicitações de cuidado de grupo podem ser enviadas com ou sem financiamento. Se você está apenas relatando o status do grupo sem solicitar fundos, deixe a seção de orçamento vazia.",
+        groupCareNote: "<strong>Nota:</strong> Solicitações de cuidado de grupo podem ser enviadas com ou sem financiamento. Se você está apenas relatando o status do grupo sem solicitar fundos, deixe a seção de orçamento vazia.",
 
         // Other Request Details
         otherDetails: "Detalhes de Outra Solicitação",
