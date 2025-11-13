@@ -108,6 +108,18 @@ Total: 11,500 KSH`,
         currencyAutoSelected: "Auto-selected based on country",
         currencySelectDefault: "-- Auto-selected --",
 
+        // Currency options
+        currencyKSH: "KSH (Kenyan Shilling)",
+        currencyGHS: "GHS (Ghanaian Cedi)",
+        currencyUSD: "USD (US Dollar)",
+        currencyUGX: "UGX (Ugandan Shilling)",
+        currencyRWF: "RWF (Rwandan Franc)",
+        currencyZMW: "ZMW (Zambian Kwacha)",
+        currencyXOF: "XOF (West African CFA Franc)",
+        currencyNGN: "NGN (Nigerian Naira)",
+        currencyZAR: "ZAR (South African Rand)",
+        currencyTZS: "TZS (Tanzanian Shilling)",
+
         // Group Launch Details
         groupLaunchDetails: "Group Launch Details",
         potentialGroups: "Number of Potential New Groups/Leaders",
@@ -311,6 +323,18 @@ Total: 11 500 KSH`,
         currencyAutoSelected: "Sélectionné automatiquement selon le pays",
         currencySelectDefault: "-- Auto-sélectionné --",
 
+        // Currency options (French)
+        currencyKSH: "KSH (Shilling Kenyan)",
+        currencyGHS: "GHS (Cedi Ghanéen)",
+        currencyUSD: "USD (Dollar Américain)",
+        currencyUGX: "UGX (Shilling Ougandais)",
+        currencyRWF: "RWF (Franc Rwandais)",
+        currencyZMW: "ZMW (Kwacha Zambien)",
+        currencyXOF: "XOF (Franc CFA d'Afrique de l'Ouest)",
+        currencyNGN: "NGN (Naira Nigérian)",
+        currencyZAR: "ZAR (Rand Sud-Africain)",
+        currencyTZS: "TZS (Shilling Tanzanien)",
+
         // Group Launch Details
         groupLaunchDetails: "Détails du Lancement de Groupe",
         potentialGroups: "Nombre de Nouveaux Groupes/Leaders Potentiels",
@@ -513,6 +537,18 @@ Total: 11.500 KSH`,
         currency: "Moeda",
         currencyAutoSelected: "Selecionado automaticamente com base no país",
         currencySelectDefault: "-- Auto-selecionado --",
+
+        // Currency options (Portuguese)
+        currencyKSH: "KSH (Xelim Queniano)",
+        currencyGHS: "GHS (Cedi Ganês)",
+        currencyUSD: "USD (Dólar Americano)",
+        currencyUGX: "UGX (Xelim Ugandense)",
+        currencyRWF: "RWF (Franco Ruandês)",
+        currencyZMW: "ZMW (Kwacha Zambiano)",
+        currencyXOF: "XOF (Franco CFA da África Ocidental)",
+        currencyNGN: "NGN (Naira Nigeriana)",
+        currencyZAR: "ZAR (Rand Sul-Africano)",
+        currencyTZS: "TZS (Xelim Tanzaniano)",
 
         // Group Launch Details
         groupLaunchDetails: "Detalhes do Lançamento de Grupo",

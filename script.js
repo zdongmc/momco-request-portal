@@ -355,6 +355,14 @@ function applyLanguage(lang) {
         selectCurrency.textContent = t.currencySelectDefault;
     }
 
+    // Translate currency options
+    document.querySelectorAll('#currency option[data-i18n-option]').forEach(option => {
+        const key = option.getAttribute('data-i18n-option');
+        if (t[key]) {
+            option.textContent = t[key];
+        }
+    });
+
     // Update footer
     const footer = document.querySelector('footer p');
     if (footer && t.footerText) {
