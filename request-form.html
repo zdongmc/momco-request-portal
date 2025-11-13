@@ -16,7 +16,7 @@
                 <button type="button" class="lang-btn" data-lang="pt">Português</button>
             </div>
             <h1 data-i18n="title">MomCo Africa</h1>
-            <h2 data-i18n="subtitle">Event Request Portal</h2>
+            <h2 data-i18n="subtitle">Event Budget Request</h2>
             <p class="subtitle" data-i18n="description">Submit funding requests for events and group support</p>
         </header>
 
@@ -29,7 +29,7 @@
                         <label class="event-type-card">
                             <input type="radio" name="eventType" value="group-launch" required>
                             <div class="card-content">
-                                <h4 data-i18n="groupLaunchTitle">Group Launch / Outreach</h4>
+                                <h4 data-i18n="groupLaunchTitle">Group Launch / MomCo Outreach</h4>
                                 <p data-i18n="groupLaunchDesc">Launch new MomCo groups and present mission to potential leaders</p>
                             </div>
                         </label>
@@ -49,14 +49,6 @@
                                 <p data-i18n="groupCareDesc">Support and monitoring for existing groups (optional funding)</p>
                             </div>
                         </label>
-
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="other" required>
-                            <div class="card-content">
-                                <h4 data-i18n="otherTitle">Other</h4>
-                                <p data-i18n="otherDesc">Operational expenses (curriculum, coordination, etc.)</p>
-                            </div>
-                        </label>
                     </div>
                 </section>
 
@@ -64,55 +56,50 @@
                 <section class="form-section">
                     <h3 data-i18n="requesterInfo">Requester Information</h3>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName"><span data-i18n="firstName">First Name</span> *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName"><span data-i18n="lastName">Last Name</span> *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
-
                     <div class="form-group">
                         <label for="country"><span data-i18n="country">Country</span> *</label>
                         <select id="country" name="country" required>
                             <option value="" data-i18n="selectCountry">-- Select Country --</option>
-                            <option value="Benin">Benin</option>
-                            <option value="Burkina Faso">Burkina Faso</option>
-                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-                            <option value="DRC">DRC (Democratic Republic of Congo)</option>
-                            <option value="East Uganda">East Uganda</option>
-                            <option value="Ghana">Ghana</option>
-                            <option value="Kenya">Kenya</option>
-                            <option value="Libya">Libya</option>
-                            <option value="Mali">Mali</option>
-                            <option value="Nigeria">Nigeria</option>
-                            <option value="Rwanda">Rwanda</option>
-                            <option value="South Africa">South Africa</option>
-                            <option value="Tanzania">Tanzania</option>
-                            <option value="Togo">Togo</option>
-                            <option value="West Uganda">West Uganda</option>
-                            <option value="Zambia">Zambia</option>
-                            <option value="French Africa">French Africa (Other)</option>
-                            <option value="English Africa">English Africa (Other)</option>
-                            <option value="Portuguese Africa">Portuguese Africa</option>
+                            <option value="Angola" data-i18n-option="countryAngola">Angola</option>
+                            <option value="Benin" data-i18n-option="countryBenin">Benin</option>
+                            <option value="Burkina Faso" data-i18n-option="countryBurkinaFaso">Burkina Faso</option>
+                            <option value="Côte d'Ivoire" data-i18n-option="countryCoteDIvoire">Côte d'Ivoire</option>
+                            <option value="DRC" data-i18n-option="countryDRC">DRC (Democratic Republic of Congo)</option>
+                            <option value="Ghana" data-i18n-option="countryGhana">Ghana</option>
+                            <option value="Kenya" data-i18n-option="countryKenya">Kenya</option>
+                            <option value="Libya" data-i18n-option="countryLibya">Libya</option>
+                            <option value="Mali" data-i18n-option="countryMali">Mali</option>
+                            <option value="Nigeria" data-i18n-option="countryNigeria">Nigeria</option>
+                            <option value="North Africa" data-i18n-option="countryNorthAfrica">North Africa</option>
+                            <option value="Rwanda" data-i18n-option="countryRwanda">Rwanda</option>
+                            <option value="South Africa" data-i18n-option="countrySouthAfrica">South Africa</option>
+                            <option value="Tanzania" data-i18n-option="countryTanzania">Tanzania</option>
+                            <option value="Togo" data-i18n-option="countryTogo">Togo</option>
+                            <option value="Uganda (East)" data-i18n-option="countryUgandaEast">Uganda (East)</option>
+                            <option value="Uganda (West)" data-i18n-option="countryUgandaWest">Uganda (West)</option>
+                            <option value="Zambia" data-i18n-option="countryZambia">Zambia</option>
+                        </select>
+                        <small class="help-text" data-i18n="countryNotListedHelp">If your country is not listed, please contact your GMD (Global Ministry Developer).</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="requesterName"><span data-i18n="requesterName">Requester Name</span> *</label>
+                        <select id="requesterName" name="requesterName" required disabled>
+                            <option value="" data-i18n="selectRequesterFirst">-- Select Country First --</option>
                         </select>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email"><span data-i18n="email">Email</span> *</label>
-                            <input type="email" id="email" name="email" required
-                                   placeholder="your@email.com">
+                            <label for="whatsapp"><span data-i18n="whatsapp">WhatsApp Number</span> *</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" required
+                                   placeholder="+254 712 345 678">
                         </div>
 
                         <div class="form-group">
-                            <label for="whatsapp" data-i18n="whatsapp">WhatsApp Number</label>
-                            <input type="tel" id="whatsapp" name="whatsapp"
-                                   placeholder="+254 712 345 678">
+                            <label for="email" data-i18n="email">Email</label>
+                            <input type="email" id="email" name="email"
+                                   placeholder="your@email.com">
                         </div>
                     </div>
                 </section>
@@ -121,10 +108,18 @@
                 <section class="form-section" id="eventDetailsSection">
                     <h3 data-i18n="eventDetails">Event Details</h3>
 
-                    <div class="form-group">
-                        <label for="location"><span data-i18n="location">Location / Venue</span> *</label>
-                        <input type="text" id="location" name="location" required
-                               data-i18n-placeholder="locationPlaceholder" placeholder="e.g., Nairobi, Kisumu Community Church">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location"><span data-i18n="location">Location</span> *</label>
+                            <input type="text" id="location" name="location" required
+                                   data-i18n-placeholder="locationPlaceholder" placeholder="e.g., Nairobi, Kisumu">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="venue"><span data-i18n="venue">Venue</span> *</label>
+                            <input type="text" id="venue" name="venue" required
+                                   data-i18n-placeholder="venuePlaceholder" placeholder="e.g., Community Church, Conference Center">
+                        </div>
                     </div>
 
                     <div class="form-row">
@@ -145,13 +140,6 @@
                         <label for="participantsExpected"><span data-i18n="participantsExpected">Number of Participants Expected</span> *</label>
                         <input type="number" id="participantsExpected" name="participantsExpected"
                                min="1" required placeholder="e.g., 25">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
-                        <input type="text" id="sendFundsTo" name="sendFundsTo" required
-                               data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
-                        <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
                     </div>
                 </section>
 
@@ -209,6 +197,13 @@
                             </select>
                             <small class="help-text" data-i18n="currencyAutoSelected">Auto-selected based on country</small>
                         </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
+                        <input type="text" id="sendFundsTo" name="sendFundsTo" required
+                               data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
+                        <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
                     </div>
                 </section>
 
@@ -384,29 +379,6 @@
                     <div class="info-box">
                         <span data-i18n="groupCareNote"><strong>Note:</strong> Group Care requests can be submitted with or without funding.
                         If you're only reporting the group's status without requesting funds, leave the budget section empty.</span>
-                    </div>
-                </section>
-
-                <!-- Other Request Specific Fields -->
-                <section class="form-section event-specific" id="otherFields" style="display: none;">
-                    <h3 data-i18n="otherDetails">Other Request Details</h3>
-
-                    <div class="form-group">
-                        <label for="purposeDescription"><span data-i18n="purposeDescription">Purpose / Description</span> *</label>
-                        <textarea id="purposeDescription" name="purposeDescription" rows="6" required
-                                  data-i18n-placeholder="purposeDescriptionPlaceholder"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="timePeriod" data-i18n="timePeriod">Time Period Covered</label>
-                        <input type="text" id="timePeriod" name="timePeriod"
-                               data-i18n-placeholder="timePeriodPlaceholder" placeholder="e.g., Q1 2025, Annual 2025, Half Year 2025">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="groupsSupported" data-i18n="groupsSupported">Groups or Activities Supported</label>
-                        <textarea id="groupsSupported" name="groupsSupported" rows="4"
-                                  data-i18n-placeholder="groupsSupportedPlaceholder"></textarea>
                     </div>
                 </section>
 

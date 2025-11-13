@@ -6,10 +6,10 @@
 const translations = {
     en: {
         // Landing Page
-        landingTitle: "MomCo Africa Portal",
+        landingTitle: "MomCo Africa Budget Requests",
         landingSubtitle: "Supporting mothers and leaders across Africa",
         requestFundsTitle: "Request Funds",
-        requestFundsDesc: "Submit a funding request for events, group launches, leadership training, or operational expenses",
+        requestFundsDesc: "Submit a funding request for group launches, leadership training, or group care",
         requestFundsButton: "Get Started",
         submitReportTitle: "Submit Report",
         submitReportDesc: "Submit a post-event report with photos, attendance, and outcomes from your completed event",
@@ -17,7 +17,7 @@ const translations = {
 
         // Header
         title: "MomCo Africa",
-        subtitle: "Event Request Portal",
+        subtitle: "Event Budget Request",
         description: "Submit funding requests for events and group support",
 
         // Language Toggle
@@ -25,7 +25,7 @@ const translations = {
 
         // Event Type Selection
         selectEventType: "Select Event Type",
-        groupLaunchTitle: "Group Launch / Outreach",
+        groupLaunchTitle: "Group Launch / MomCo Outreach",
         groupLaunchDesc: "Launch new MomCo groups and present mission to potential leaders",
         leadershipTrainingTitle: "Leadership Training",
         leadershipTrainingDesc: "Training for existing leaders, team building, and goal setting",
@@ -36,20 +36,41 @@ const translations = {
 
         // Requester Information
         requesterInfo: "Requester Information",
-        firstName: "First Name",
-        firstNamePlaceholder: "e.g., Julie, Faith Rose",
-        firstNameHelp: "Compound names like \"Faith Rose\" are OK",
-        lastName: "Last Name",
-        lastNamePlaceholder: "e.g., Pemba, Balica",
         country: "Country",
         selectCountry: "-- Select Country --",
+        countryNotListedHelp: "If your country is not listed, please contact your GMD (Global Ministry Developer).",
+        requesterName: "Requester Name",
+        selectRequesterFirst: "-- Select Country First --",
+
+        // Country names
+        countryAngola: "Angola",
+        countryBenin: "Benin",
+        countryBurkinaFaso: "Burkina Faso",
+        countryCoteDIvoire: "Côte d'Ivoire",
+        countryDRC: "DRC (Democratic Republic of Congo)",
+        countryGhana: "Ghana",
+        countryKenya: "Kenya",
+        countryLibya: "Libya",
+        countryMali: "Mali",
+        countryNigeria: "Nigeria",
+        countryNorthAfrica: "North Africa",
+        countryRwanda: "Rwanda",
+        countrySouthAfrica: "South Africa",
+        countryTanzania: "Tanzania",
+        countryTogo: "Togo",
+        countryUgandaEast: "Uganda (East)",
+        countryUgandaWest: "Uganda (West)",
+        countryZambia: "Zambia",
+
         email: "Email",
         whatsapp: "WhatsApp Number",
 
         // Event Details
         eventDetails: "Event Details",
-        location: "Location / Venue",
-        locationPlaceholder: "e.g., Nairobi, Kisumu Community Church",
+        location: "Location",
+        locationPlaceholder: "e.g., Nairobi, Kisumu",
+        venue: "Venue",
+        venuePlaceholder: "e.g., Community Church, Conference Center",
         eventDate: "Date of Event",
         eventDateHelp: "When will the event take place?",
         fundsNeededDate: "Date Funds Needed By",
@@ -188,10 +209,10 @@ For now, check the browser console to see your submitted data.`
 
     fr: {
         // Landing Page
-        landingTitle: "Portail MomCo Afrique",
+        landingTitle: "Demandes de Budget MomCo Afrique",
         landingSubtitle: "Soutenir les mères et les leaders à travers l'Afrique",
         requestFundsTitle: "Demander des Fonds",
-        requestFundsDesc: "Soumettre une demande de financement pour des événements, lancements de groupes, formations de leadership ou dépenses opérationnelles",
+        requestFundsDesc: "Soumettre une demande de financement pour lancements de groupes, formations de leadership ou soins aux groupes",
         requestFundsButton: "Commencer",
         submitReportTitle: "Soumettre un Rapport",
         submitReportDesc: "Soumettre un rapport post-événement avec photos, présence et résultats de votre événement terminé",
@@ -199,7 +220,7 @@ For now, check the browser console to see your submitted data.`
 
         // Header
         title: "MomCo Afrique",
-        subtitle: "Portail de Demande d'Événements",
+        subtitle: "Demande de Budget d'Événement",
         description: "Soumettre des demandes de financement pour des événements et du soutien aux groupes",
 
         // Language Toggle
@@ -207,7 +228,7 @@ For now, check the browser console to see your submitted data.`
 
         // Event Type Selection
         selectEventType: "Sélectionner le Type d'Événement",
-        groupLaunchTitle: "Lancement de Groupe / Sensibilisation",
+        groupLaunchTitle: "Lancement de Groupe / Sensibilisation MomCo",
         groupLaunchDesc: "Lancer de nouveaux groupes MomCo et présenter la mission aux leaders potentiels",
         leadershipTrainingTitle: "Formation de Leadership",
         leadershipTrainingDesc: "Formation pour les leaders existants, team building et définition d'objectifs",
@@ -218,20 +239,41 @@ For now, check the browser console to see your submitted data.`
 
         // Requester Information
         requesterInfo: "Informations sur le Demandeur",
-        firstName: "Prénom",
-        firstNamePlaceholder: "par ex., Julie, Faith Rose",
-        firstNameHelp: "Les prénoms composés comme \"Faith Rose\" sont OK",
-        lastName: "Nom de Famille",
-        lastNamePlaceholder: "par ex., Pemba, Balica",
         country: "Pays",
         selectCountry: "-- Sélectionner un Pays --",
+        countryNotListedHelp: "Si votre pays n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
+        requesterName: "Nom du Demandeur",
+        selectRequesterFirst: "-- Sélectionner d'abord le Pays --",
+
+        // Country names (French)
+        countryAngola: "Angola",
+        countryBenin: "Bénin",
+        countryBurkinaFaso: "Burkina Faso",
+        countryCoteDIvoire: "Côte d'Ivoire",
+        countryDRC: "RDC (République Démocratique du Congo)",
+        countryGhana: "Ghana",
+        countryKenya: "Kenya",
+        countryLibya: "Libye",
+        countryMali: "Mali",
+        countryNigeria: "Nigeria",
+        countryNorthAfrica: "Afrique du Nord",
+        countryRwanda: "Rwanda",
+        countrySouthAfrica: "Afrique du Sud",
+        countryTanzania: "Tanzanie",
+        countryTogo: "Togo",
+        countryUgandaEast: "Ouganda (Est)",
+        countryUgandaWest: "Ouganda (Ouest)",
+        countryZambia: "Zambie",
+
         email: "Email",
         whatsapp: "Numéro WhatsApp",
 
         // Event Details
         eventDetails: "Détails de l'Événement",
-        location: "Lieu / Salle",
-        locationPlaceholder: "par ex., Nairobi, Église Communautaire de Kisumu",
+        location: "Lieu",
+        locationPlaceholder: "par ex., Nairobi, Kisumu",
+        venue: "Salle",
+        venuePlaceholder: "par ex., Église Communautaire, Centre de Conférence",
         eventDate: "Date de l'Événement",
         eventDateHelp: "Quand l'événement aura-t-il lieu?",
         fundsNeededDate: "Date Limite pour les Fonds",
@@ -370,10 +412,10 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
 
     pt: {
         // Landing Page
-        landingTitle: "Portal MomCo África",
+        landingTitle: "Solicitações de Orçamento MomCo África",
         landingSubtitle: "Apoiando mães e líderes em toda a África",
         requestFundsTitle: "Solicitar Fundos",
-        requestFundsDesc: "Envie uma solicitação de financiamento para eventos, lançamentos de grupos, treinamento de liderança ou despesas operacionais",
+        requestFundsDesc: "Envie uma solicitação de financiamento para lançamentos de grupos, treinamento de liderança ou cuidado de grupo",
         requestFundsButton: "Começar",
         submitReportTitle: "Enviar Relatório",
         submitReportDesc: "Envie um relatório pós-evento com fotos, presença e resultados do seu evento concluído",
@@ -381,7 +423,7 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
 
         // Header
         title: "MomCo África",
-        subtitle: "Portal de Solicitação de Eventos",
+        subtitle: "Solicitação de Orçamento de Evento",
         description: "Envie solicitações de financiamento para eventos e apoio a grupos",
 
         // Language Toggle
@@ -389,7 +431,7 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
 
         // Event Type Selection
         selectEventType: "Selecionar Tipo de Evento",
-        groupLaunchTitle: "Lançamento de Grupo / Divulgação",
+        groupLaunchTitle: "Lançamento de Grupo / Divulgação MomCo",
         groupLaunchDesc: "Lançar novos grupos MomCo e apresentar missão a líderes em potencial",
         leadershipTrainingTitle: "Treinamento de Liderança",
         leadershipTrainingDesc: "Treinamento para líderes existentes, construção de equipe e definição de metas",
@@ -400,20 +442,41 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
 
         // Requester Information
         requesterInfo: "Informações do Solicitante",
-        firstName: "Primeiro Nome",
-        firstNamePlaceholder: "ex., Julie, Faith Rose",
-        firstNameHelp: "Nomes compostos como \"Faith Rose\" são OK",
-        lastName: "Sobrenome",
-        lastNamePlaceholder: "ex., Pemba, Balica",
         country: "País",
         selectCountry: "-- Selecionar País --",
+        countryNotListedHelp: "Se o seu país não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
+        requesterName: "Nome do Solicitante",
+        selectRequesterFirst: "-- Selecionar País Primeiro --",
+
+        // Country names (Portuguese)
+        countryAngola: "Angola",
+        countryBenin: "Benin",
+        countryBurkinaFaso: "Burkina Faso",
+        countryCoteDIvoire: "Costa do Marfim",
+        countryDRC: "RDC (República Democrática do Congo)",
+        countryGhana: "Gana",
+        countryKenya: "Quênia",
+        countryLibya: "Líbia",
+        countryMali: "Mali",
+        countryNigeria: "Nigéria",
+        countryNorthAfrica: "Norte da África",
+        countryRwanda: "Ruanda",
+        countrySouthAfrica: "África do Sul",
+        countryTanzania: "Tanzânia",
+        countryTogo: "Togo",
+        countryUgandaEast: "Uganda (Leste)",
+        countryUgandaWest: "Uganda (Oeste)",
+        countryZambia: "Zâmbia",
+
         email: "E-mail",
         whatsapp: "Número do WhatsApp",
 
         // Event Details
         eventDetails: "Detalhes do Evento",
-        location: "Local / Espaço",
-        locationPlaceholder: "ex., Nairobi, Igreja Comunitária de Kisumu",
+        location: "Local",
+        locationPlaceholder: "ex., Nairobi, Kisumu",
+        venue: "Espaço",
+        venuePlaceholder: "ex., Igreja Comunitária, Centro de Conferências",
         eventDate: "Data do Evento",
         eventDateHelp: "Quando o evento ocorrerá?",
         fundsNeededDate: "Data Limite para Fundos",

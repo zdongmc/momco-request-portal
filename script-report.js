@@ -140,25 +140,24 @@ function setFieldsRequired(section, isRequired) {
 
 // Currency mapping by country
 const CURRENCY_MAP = {
+    'Angola': 'USD',
     'Benin': 'XOF',
     'Burkina Faso': 'XOF',
     'Côte d\'Ivoire': 'XOF',
     'DRC': 'USD',
-    'East Uganda': 'UGX',
     'Ghana': 'GHS',
     'Kenya': 'KSH',
     'Libya': 'USD',
     'Mali': 'XOF',
     'Nigeria': 'NGN',
+    'North Africa': 'USD',
     'Rwanda': 'RWF',
     'South Africa': 'ZAR',
     'Tanzania': 'TZS',
     'Togo': 'XOF',
-    'West Uganda': 'UGX',
-    'Zambia': 'ZMW',
-    'French Africa': 'XOF',
-    'English Africa': 'USD',
-    'Portuguese Africa': 'USD'
+    'Uganda (East)': 'UGX',
+    'Uganda (West)': 'UGX',
+    'Zambia': 'ZMW'
 };
 
 /**
@@ -318,6 +317,14 @@ function applyLanguage(lang) {
         const key = el.getAttribute('data-i18n');
         if (t[key]) {
             el.textContent = t[key];
+        }
+    });
+
+    // Translate country options
+    document.querySelectorAll('#country option[data-i18n-option]').forEach(option => {
+        const key = option.getAttribute('data-i18n-option');
+        if (t[key]) {
+            option.textContent = t[key];
         }
     });
 

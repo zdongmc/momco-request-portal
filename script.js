@@ -325,7 +325,10 @@ function applyLanguage(lang) {
             'Liste cada item do orçamento com valores': 'budgetHelp',
             'Auto-selected based on country': 'currencyAutoSelected',
             'Sélectionné automatiquement selon le pays': 'currencyAutoSelected',
-            'Selecionado automaticamente com base no país': 'currencyAutoSelected'
+            'Selecionado automaticamente com base no país': 'currencyAutoSelected',
+            'If your country is not listed, please contact your GMD (Global Ministry Developer).': 'countryNotListedHelp',
+            'Si votre pays n\'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).': 'countryNotListedHelp',
+            'Se o seu país não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).': 'countryNotListedHelp'
         };
         const key = helpMap[text];
         if (key && t[key]) {
@@ -338,6 +341,14 @@ function applyLanguage(lang) {
     if (selectCountry && t.selectCountry) {
         selectCountry.textContent = t.selectCountry;
     }
+
+    // Translate country options
+    document.querySelectorAll('#country option[data-i18n-option]').forEach(option => {
+        const key = option.getAttribute('data-i18n-option');
+        if (t[key]) {
+            option.textContent = t[key];
+        }
+    });
 
     const selectCurrency = document.querySelector('#currency option[value=""]');
     if (selectCurrency && t.currencySelectDefault) {
@@ -390,25 +401,24 @@ function getAgendaTemplate(type) {
 
 // Currency mapping by country
 const CURRENCY_MAP = {
+    'Angola': 'USD',
     'Benin': 'XOF',
     'Burkina Faso': 'XOF',
     'Côte d\'Ivoire': 'XOF',
     'DRC': 'USD',
-    'East Uganda': 'UGX',
     'Ghana': 'GHS',
     'Kenya': 'KSH',
     'Libya': 'USD',
     'Mali': 'XOF',
     'Nigeria': 'NGN',
+    'North Africa': 'USD',
     'Rwanda': 'RWF',
     'South Africa': 'ZAR',
     'Tanzania': 'TZS',
     'Togo': 'XOF',
-    'West Uganda': 'UGX',
-    'Zambia': 'ZMW',
-    'French Africa': 'XOF',
-    'English Africa': 'USD',
-    'Portuguese Africa': 'USD'
+    'Uganda (East)': 'UGX',
+    'Uganda (West)': 'UGX',
+    'Zambia': 'ZMW'
 };
 
 // DOM Elements
@@ -421,7 +431,6 @@ let budgetSection;
 let groupLaunchFields;
 let leadershipTrainingFields;
 let groupCareFields;
-let otherFields;
 let requestForm;
 let loadGroupLaunchTemplate;
 let loadLeadershipTemplate;
@@ -449,7 +458,6 @@ function initializeElements() {
     groupLaunchFields = document.getElementById('groupLaunchFields');
     leadershipTrainingFields = document.getElementById('leadershipTrainingFields');
     groupCareFields = document.getElementById('groupCareFields');
-    otherFields = document.getElementById('otherFields');
     requestForm = document.getElementById('requestForm');
     loadGroupLaunchTemplate = document.getElementById('loadGroupLaunchTemplate');
     loadLeadershipTemplate = document.getElementById('loadLeadershipTemplate');
@@ -468,6 +476,23 @@ function attachEventListeners() {
 
     // Country change
     countrySelect.addEventListener('change', handleCountryChange);
+
+    // Requester name change - autopopulate Send Funds To
+    const requesterNameSelect = document.getElementById('requesterName');
+    if (requesterNameSelect) {
+        requesterNameSelect.addEventListener('change', handleRequesterNameChange);
+    }
+
+    // Send Funds To manual change - mark as manually edited
+    const sendFundsToInput = document.getElementById('sendFundsTo');
+    if (sendFundsToInput) {
+        sendFundsToInput.addEventListener('input', function() {
+            // If user manually types, remove the auto-populated flag
+            if (this.dataset.autoPopulated === 'true') {
+                delete this.dataset.autoPopulated;
+            }
+        });
+    }
 
     // Template buttons
     loadGroupLaunchTemplate.addEventListener('click', function() {
@@ -534,13 +559,6 @@ function handleEventTypeChange(e) {
             setGroupCareFieldsRequired();
             makeGroupCareBudgetOptional();
             break;
-
-        case 'other':
-            otherFields.style.display = 'block';
-            showCommonSections();
-            setFieldsRequired(otherFields, true);
-            makeOtherFieldsAdjustments();
-            break;
     }
 }
 
@@ -560,7 +578,6 @@ function hideAllEventSpecificSections() {
     groupLaunchFields.style.display = 'none';
     leadershipTrainingFields.style.display = 'none';
     groupCareFields.style.display = 'none';
-    otherFields.style.display = 'none';
 }
 
 /**
@@ -606,22 +623,13 @@ function makeGroupCareBudgetOptional() {
 }
 
 /**
- * Make adjustments for "Other" event type
- */
-function makeOtherFieldsAdjustments() {
-    // Event date is optional for operational expenses
-    document.getElementById('eventDate').removeAttribute('required');
-    document.getElementById('participantsExpected').removeAttribute('required');
-
-    // Agenda is optional for operational requests
-    document.getElementById('agenda').removeAttribute('required');
-}
-
-/**
  * Handle country selection
  */
 function handleCountryChange(e) {
     const selectedCountry = e.target.value;
+
+    // Populate requester dropdown based on country
+    populateRequesterDropdown(selectedCountry);
 
     if (selectedCountry && CURRENCY_MAP[selectedCountry]) {
         const currency = CURRENCY_MAP[selectedCountry];
@@ -632,6 +640,64 @@ function handleCountryChange(e) {
         setTimeout(() => {
             currencySelect.style.backgroundColor = '';
         }, 1000);
+    }
+}
+
+/**
+ * Populate requester dropdown based on selected country
+ */
+function populateRequesterDropdown(country) {
+    const requesterSelect = document.getElementById('requesterName');
+    const t = translations[currentLanguage];
+
+    // Clear existing options
+    requesterSelect.innerHTML = '';
+
+    if (!country) {
+        // No country selected
+        requesterSelect.disabled = true;
+        const defaultOption = document.createElement('option');
+        defaultOption.value = '';
+        defaultOption.textContent = t.selectRequesterFirst || '-- Select Country First --';
+        requesterSelect.appendChild(defaultOption);
+        return;
+    }
+
+    // Enable the dropdown
+    requesterSelect.disabled = false;
+
+    // Add default option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.textContent = '-- Select Requester --';
+    requesterSelect.appendChild(defaultOption);
+
+    // Add placeholder requesters for each country
+    const requester1 = document.createElement('option');
+    requester1.value = `${country} Requester 1`;
+    requester1.textContent = `${country} Requester 1`;
+    requesterSelect.appendChild(requester1);
+
+    const requester2 = document.createElement('option');
+    requester2.value = `${country} Requester 2`;
+    requester2.textContent = `${country} Requester 2`;
+    requesterSelect.appendChild(requester2);
+}
+
+/**
+ * Handle requester name selection - autopopulate Send Funds To
+ */
+function handleRequesterNameChange(e) {
+    const selectedRequester = e.target.value;
+    const sendFundsToInput = document.getElementById('sendFundsTo');
+
+    if (sendFundsToInput && selectedRequester) {
+        // Only autopopulate if the field is empty or unchanged from previous autopopulation
+        // This allows users to override the value
+        if (!sendFundsToInput.value || sendFundsToInput.dataset.autoPopulated === 'true') {
+            sendFundsToInput.value = selectedRequester;
+            sendFundsToInput.dataset.autoPopulated = 'true';
+        }
     }
 }
 
@@ -776,8 +842,8 @@ function generateFilename(data) {
     const year = date.getFullYear();
 
     const country = data.country || 'Unknown';
-    // Use only first name in file naming convention
-    const name = data.firstName || 'Unknown';
+    // Use requester name from dropdown
+    const name = data.requesterName || 'Unknown';
 
     let eventType = '';
     switch(data.eventType) {
@@ -789,11 +855,6 @@ function generateFilename(data) {
             break;
         case 'group-care':
             eventType = data.groupName ? `Group Care - ${data.groupName}` : 'Group Care';
-            break;
-        case 'other':
-            const purpose = data.purposeDescription ?
-                data.purposeDescription.split('\n')[0].substring(0, 30) : 'Other';
-            eventType = `Other - ${purpose}`;
             break;
     }
 

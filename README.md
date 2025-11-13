@@ -126,13 +126,69 @@ agendaTemplates: {
 <button type="button" class="lang-btn" data-lang="es">Español</button>
 ```
 
+## Email System
+
+### Configuration
+
+The portal uses a **free Gmail account** for sending email notifications.
+
+**Email Service:** Free Gmail account
+**Implementation:** Google Apps Script with MailApp service
+**Daily Sending Limit:** 100 emails per day (Gmail free tier)
+**Sender:** Configured Gmail account (e.g., `momcoportal@gmail.com`)
+
+### Email Flow
+
+**When a funding request is submitted:**
+1. Form data collected from portal
+2. Google Apps Script processes submission
+3. Email notification sent to GMD team
+4. Confirmation email sent to requester
+5. Data saved to Google Drive/Sheets
+
+**When a post-event report is submitted:**
+1. Form data and attachments collected
+2. Google Apps Script processes submission
+3. Email notification sent to GMD
+4. Report linked to original request
+
+### Email Content
+
+**Request Notification includes:**
+- Requester name and country
+- Event type and date
+- Amount requested and currency
+- Link to generated request document
+- All form field data
+
+**Report Notification includes:**
+- Reporter name and country
+- Actual event date and outcomes
+- Actual participants
+- Links to uploaded photos/documents
+- All form field data
+
+### Limitations
+
+- **100 emails/day limit** (suitable for current volume < 50 submissions/day)
+- Emails may occasionally land in spam (recipients should whitelist sender)
+- Can upgrade to Google Workspace for higher limits and professional email address
+
+### Future Upgrade Path
+
+Upgrade to Google Workspace ($6-12/month) for:
+- Higher daily limit (1,500-2,000 emails/day)
+- Professional email address (e.g., `portal@momcoafrica.org`)
+- Better deliverability
+- No code changes required
+
 ## Integration (Future Phase 2)
 
 The portal is designed to integrate with:
 - **Google Apps Script** - Backend processing
 - **Google Sheets** - MomCoAfricaBudgetTracking.xlsx
 - **Google Drive** - PDF storage and organization
-- **Email notifications** - To GMD and requesters
+- **Email notifications** - Via free Gmail account (see Email System above)
 
 ### Planned Features (Phase 2+)
 - Auto-generate PDFs from submissions
