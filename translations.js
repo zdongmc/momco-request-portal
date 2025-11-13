@@ -38,8 +38,8 @@ const translations = {
         requesterInfo: "Requester Information",
         country: "Country",
         selectCountry: "-- Select Country --",
-        countryNotListedHelp: "If your country is not listed, please contact your GMD (Global Ministry Developer).",
         requesterName: "Requester Name",
+        countryNotListedHelp: "If your country or name is not listed, please contact your GMD (Global Ministry Developer).",
         selectRequesterFirst: "-- Select Country First --",
 
         // Country names
@@ -253,8 +253,8 @@ For now, check the browser console to see your submitted data.`
         requesterInfo: "Informations sur le Demandeur",
         country: "Pays",
         selectCountry: "-- Sélectionner un Pays --",
-        countryNotListedHelp: "Si votre pays n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
         requesterName: "Nom du Demandeur",
+        countryNotListedHelp: "Si votre pays ou nom n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
         selectRequesterFirst: "-- Sélectionner d'abord le Pays --",
 
         // Country names (French)
@@ -468,8 +468,8 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
         requesterInfo: "Informações do Solicitante",
         country: "País",
         selectCountry: "-- Selecionar País --",
-        countryNotListedHelp: "Se o seu país não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
         requesterName: "Nome do Solicitante",
+        countryNotListedHelp: "Se o seu país ou nome não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
         selectRequesterFirst: "-- Selecionar País Primeiro --",
 
         // Country names (Portuguese)
