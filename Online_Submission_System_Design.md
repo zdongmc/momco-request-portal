@@ -37,8 +37,12 @@ Request forms are submitted **before** events to request funding. They create en
 #### Common Fields (All Event Request Types)
 
 ##### Requester Information
-- **Name**: First name only (auto-validated against naming standards)
 - **Country**: Dropdown (all African countries in system)
+  - Primary selection that determines available requesters
+- **Requester Name**: Dropdown populated based on country selection
+  - Displays only requesters associated with selected country
+  - Prevents typos and ensures standardization
+  - First name only (compound names kept complete, e.g., "Faith Rose")
 - **Region**: Auto-populated based on country selection
 - **Contact Information**: Email, WhatsApp number
 
@@ -152,9 +156,14 @@ Report forms are submitted **after** events to document outcomes and accountabil
 
 #### Common Report Fields (All Event Types)
 
-##### Reporter Information
-- **Name**: First name only (pre-filled from request if linked)
-- **Country**: Dropdown (pre-filled from request if linked)
+##### Reporter/Event Identification
+- **Country**: Dropdown (all African countries in system)
+  - Primary selection that determines available requesters
+  - **Future Enhancement**: Can be pre-filled from linked request
+- **Requester Name**: Dropdown populated based on country selection
+  - Displays only requesters associated with selected country
+  - Same cascading logic as request form for consistency
+  - **Future Enhancement**: With backend integration, will display outstanding requests for selection
 - **Contact Information**: Email, WhatsApp number
 
 ##### Event Outcome
@@ -912,6 +921,15 @@ Created when GMD records payment:
   - Other Report
 - Reports update existing request entries or create new entries (Group Care)
 - File upload capability for photos/documents
+- **Enhanced Event Matching**: When submitting a report, the system will:
+  1. User selects Country → Requester Name (cascading dropdowns)
+  2. Backend queries Google Sheets for outstanding requests by that requester
+  3. Displays a third dropdown: "Select Event to Report On"
+  4. Shows list of paid events without reports (filtered by country + requester)
+  5. Each option shows: Event Type, Date, Location, Amount
+  6. User selects their event, and report auto-links to that request
+  7. Report updates the corresponding row in "All Events" spreadsheet
+  8. Eliminates manual matching and ensures accurate linking
 
 **Time to build**: 1-2 weeks
 

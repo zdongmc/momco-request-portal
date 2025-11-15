@@ -26,11 +26,16 @@ A trilingual (English/French/Portuguese) web portal for submitting event funding
 
 ## Files
 
-- `index.html` - Main form interface
+- `index.html` - Landing page with links to forms
+- `request-form.html` - Event funding request form
+- `post-event-report.html` - Post-event report form
 - `styles.css` - Responsive styling
-- `script.js` - Form validation and interactions
-- `translations.js` - All language translations and templates
-- `language.js` - Language switching module (optional)
+- `script.js` - Request form validation and interactions
+- `script-report.js` - Report form validation and interactions
+- `translations.js` - Request form translations and templates
+- `translations-report.js` - Report form translations
+- `country-requester-data.js` - Shared country-to-leader mapping data
+- `api-config.js` - API configuration for backend integration
 
 ## Usage
 
@@ -63,13 +68,27 @@ python3 -m http.server 8000
 ## Form Fields
 
 ### Common to All Event Types
-- Requester name (first name only)
-- Country (auto-selects currency)
+- Country (auto-selects currency and populates requester dropdown)
+- Requester name (dropdown populated based on country selection)
 - Contact information (email, WhatsApp)
 - Event location and date
 - Budget details
 - Funds needed by date
 - Event agenda
+
+### Country-Based Leader Dropdown
+
+The portal includes a smart requester name dropdown that automatically populates based on the selected country:
+
+1. **User selects country** → Currency auto-selected
+2. **Requester dropdown auto-populates** with leaders for that country
+3. **User selects their name** from the dropdown
+4. **"Send Funds To" field auto-fills** with selected name (can be overridden)
+
+**Leader Data Source:** The leader list is maintained in `country-requester-data.js` and includes all active MomCo Africa leaders organized by country. This ensures:
+- Standardized name entry (first names only, matching spreadsheet conventions)
+- Easy addition/removal of leaders as the organization grows
+- Consistent data across request forms and post-event reports
 
 ### Event-Specific Fields
 
@@ -97,6 +116,27 @@ python3 -m http.server 8000
 - Groups/activities supported
 
 ## Language Support
+
+### Adding/Updating Leader Names
+
+To add or update leader names in the requester dropdown:
+
+1. Edit `country-requester-data.js`
+2. Find the `COUNTRY_REQUESTERS` object
+3. Update the array for the relevant country:
+
+```javascript
+const COUNTRY_REQUESTERS = {
+    'Kenya': ['Anne', 'Emily', 'Grace', 'Janet', 'Leah', 'Rose Faith', 'Sammy', 'Sarah', 'Sylvia'],
+    'Ghana': ['Dorcas', 'Fosua', 'Gladys', 'Harriet', 'Janet', 'Miriam', 'Philomina', 'Rosemary', 'Selina'],
+    // ... other countries
+};
+```
+
+**Naming conventions:**
+- Use first names only (e.g., "Leah" not "Leah Njeri Kariuki")
+- Exception: Keep compound first names complete (e.g., "Rose Faith")
+- Names should match the spreadsheet naming conventions in `MomCoAfricaBudgetTracking.xlsx`
 
 ### Adding New Translations
 

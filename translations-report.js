@@ -7,7 +7,7 @@ const reportTranslations = {
     en: {
         // Header
         title: "MomCo Africa",
-        reportSubtitle: "Post-Event Report Portal",
+        reportSubtitle: "Post-Event Report",
         reportDescription: "Submit reports after your event to share outcomes and impact",
         languageLabel: "Language / Langue / Idioma:",
 
@@ -18,7 +18,10 @@ const reportTranslations = {
         lastName: "Last Name",
         country: "Country",
         selectCountry: "-- Select Country --",
-        countryNotListedHelp: "If your country is not listed, please contact your GMD (Global Ministry Developer).",
+        requesterName: "Requester Name",
+        selectRequesterFirst: "-- Select Country First --",
+        selectRequester: "-- Select Requester --",
+        countryNotListedHelp: "If your country or name is not listed, please contact your GMD (Global Ministry Developer).",
 
         // Country names
         countryAngola: "Angola",
@@ -40,9 +43,9 @@ const reportTranslations = {
         countryUgandaWest: "Uganda (West)",
         countryZambia: "Zambia",
 
-        eventType: "Event Type",
-        originalRequestDate: "When did you submit the original request?",
-        originalRequestHelp: "Approximate month/year helps us find your request",
+        eventSelection: "Select Event to Report On",
+        selectEvent: "-- Select Event --",
+        eventNotListedHelp: "If your event is not listed, please contact your GMD (Global Ministry Developer).",
 
         // Event Outcomes
         eventOutcomes: "Event Outcomes",
@@ -129,7 +132,7 @@ const reportTranslations = {
     fr: {
         // Header
         title: "MomCo Afrique",
-        reportSubtitle: "Portail de Rapport Post-Événement",
+        reportSubtitle: "Rapport Post-Événement",
         reportDescription: "Soumettez des rapports après votre événement pour partager les résultats et l'impact",
         languageLabel: "Langue / Language / Idioma:",
 
@@ -140,7 +143,10 @@ const reportTranslations = {
         lastName: "Nom de Famille",
         country: "Pays",
         selectCountry: "-- Sélectionner un Pays --",
-        countryNotListedHelp: "Si votre pays n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
+        requesterName: "Nom du Demandeur",
+        selectRequesterFirst: "-- Sélectionner d'abord le Pays --",
+        selectRequester: "-- Sélectionner le Demandeur --",
+        countryNotListedHelp: "Si votre pays ou nom n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
 
         // Country names (French)
         countryAngola: "Angola",
@@ -162,9 +168,9 @@ const reportTranslations = {
         countryUgandaWest: "Ouganda (Ouest)",
         countryZambia: "Zambie",
 
-        eventType: "Type d'Événement",
-        originalRequestDate: "Quand avez-vous soumis la demande originale?",
-        originalRequestHelp: "Le mois/année approximatif nous aide à trouver votre demande",
+        eventSelection: "Sélectionnez l'Événement à Rapporter",
+        selectEvent: "-- Sélectionner l'Événement --",
+        eventNotListedHelp: "Si votre événement n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
 
         // Event Outcomes
         eventOutcomes: "Résultats de l'Événement",
@@ -251,7 +257,7 @@ const reportTranslations = {
     pt: {
         // Header
         title: "MomCo África",
-        reportSubtitle: "Portal de Relatório Pós-Evento",
+        reportSubtitle: "Relatório Pós-Evento",
         reportDescription: "Envie relatórios após seu evento para compartilhar resultados e impacto",
         languageLabel: "Idioma / Language / Langue:",
 
@@ -262,7 +268,10 @@ const reportTranslations = {
         lastName: "Sobrenome",
         country: "País",
         selectCountry: "-- Selecionar País --",
-        countryNotListedHelp: "Se o seu país não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
+        requesterName: "Nome do Solicitante",
+        selectRequesterFirst: "-- Selecionar País Primeiro --",
+        selectRequester: "-- Selecionar Solicitante --",
+        countryNotListedHelp: "Se o seu país ou nome não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
 
         // Country names (Portuguese)
         countryAngola: "Angola",
@@ -284,9 +293,9 @@ const reportTranslations = {
         countryUgandaWest: "Uganda (Oeste)",
         countryZambia: "Zâmbia",
 
-        eventType: "Tipo de Evento",
-        originalRequestDate: "Quando você enviou a solicitação original?",
-        originalRequestHelp: "Mês/ano aproximado nos ajuda a encontrar sua solicitação",
+        eventSelection: "Selecionar Evento para Relatar",
+        selectEvent: "-- Selecionar Evento --",
+        eventNotListedHelp: "Se o seu evento não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
 
         // Event Outcomes
         eventOutcomes: "Resultados do Evento",

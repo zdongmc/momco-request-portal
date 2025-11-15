@@ -2,17 +2,33 @@
    MomCo Africa Event Request Portal - Styles
    ======================================== */
 
-/* CSS Variables for theming */
+/* Google Fonts Import - Must be first */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables for theming - MomCo Brand Colors */
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    --secondary-color: #64748b;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-    --text-dark: #1e293b;
+    /* MomCo Brand Colors */
+    --momco-poppy: #F06846;
+    --momco-purple-rain: #263C82;
+    --momco-sunshine: #FBCE1A;
+    --momco-spring-green: #E8D65A;
+    --momco-seafoam: #44BEAC;
+    --momco-sky-blue: #30C3E6;
+    --momco-petal: #F3ADAA;
+    --momco-dewdrop: #CFE7E1;
+    --momco-cloud: #FFFFFF;
+    --momco-ash: #000000;
+
+    /* Functional colors mapped to MomCo palette */
+    --primary-color: #263C82; /* Purple Rain */
+    --primary-dark: #1a2a5e;
+    --secondary-color: #44BEAC; /* Seafoam */
+    --success-color: #44BEAC; /* Seafoam */
+    --warning-color: #FBCE1A; /* Sunshine */
+    --danger-color: #F06846; /* Poppy */
+    --text-dark: #000000; /* Ash */
     --text-light: #64748b;
-    --border-color: #e2e8f0;
+    --border-color: #CFE7E1; /* Dewdrop */
     --bg-light: #f8fafc;
     --bg-white: #ffffff;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -28,7 +44,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     font-size: 16px;
     line-height: 1.6;
     color: var(--text-dark);
@@ -55,17 +71,27 @@ header {
     position: relative; /* For absolute positioning of language toggle */
 }
 
+.header-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+    /* Remove filter - will create white logo version instead */
+}
+
 header h1 {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 header h2 {
     font-size: 1.25rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 8px;
     opacity: 0.95;
+    letter-spacing: 0.3px;
 }
 
 .subtitle {
@@ -138,10 +164,12 @@ main {
 
 .form-section h3 {
     font-size: 1.5rem;
+    font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--primary-color);
+    letter-spacing: 0.3px;
 }
 
 /* Event Type Selector */

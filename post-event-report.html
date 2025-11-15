@@ -15,8 +15,9 @@
                 <button type="button" class="lang-btn" data-lang="fr">Français</button>
                 <button type="button" class="lang-btn" data-lang="pt">Português</button>
             </div>
+            <img src="MomCoLogo/The-MomCo-Primary-Logo-White.svg" alt="The MomCo" class="header-logo">
             <h1 data-i18n="title">MomCo Africa</h1>
-            <h2 data-i18n="reportSubtitle">Post-Event Report Portal</h2>
+            <h2 data-i18n="reportSubtitle">Post-Event Report</h2>
             <p class="subtitle" data-i18n="reportDescription">Submit reports after your event to share outcomes and impact</p>
         </header>
 
@@ -27,62 +28,45 @@
                     <h3 data-i18n="eventIdentification">Event Identification</h3>
                     <p class="info-text" data-i18n="identificationHelp">Help us match this report to your original event request</p>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="reporterFirstName"><span data-i18n="firstName">First Name</span> *</label>
-                            <input type="text" id="reporterFirstName" name="reporterFirstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="reporterLastName"><span data-i18n="lastName">Last Name</span> *</label>
-                            <input type="text" id="reporterLastName" name="reporterLastName" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country"><span data-i18n="country">Country</span> *</label>
-                            <select id="country" name="country" required>
-                                <option value="" data-i18n="selectCountry">-- Select Country --</option>
-                                <option value="Angola" data-i18n-option="countryAngola">Angola</option>
-                                <option value="Benin" data-i18n-option="countryBenin">Benin</option>
-                                <option value="Burkina Faso" data-i18n-option="countryBurkinaFaso">Burkina Faso</option>
-                                <option value="Côte d'Ivoire" data-i18n-option="countryCoteDIvoire">Côte d'Ivoire</option>
-                                <option value="DRC" data-i18n-option="countryDRC">DRC (Democratic Republic of Congo)</option>
-                                <option value="Ghana" data-i18n-option="countryGhana">Ghana</option>
-                                <option value="Kenya" data-i18n-option="countryKenya">Kenya</option>
-                                <option value="Libya" data-i18n-option="countryLibya">Libya</option>
-                                <option value="Mali" data-i18n-option="countryMali">Mali</option>
-                                <option value="Nigeria" data-i18n-option="countryNigeria">Nigeria</option>
-                                <option value="North Africa" data-i18n-option="countryNorthAfrica">North Africa</option>
-                                <option value="Rwanda" data-i18n-option="countryRwanda">Rwanda</option>
-                                <option value="South Africa" data-i18n-option="countrySouthAfrica">South Africa</option>
-                                <option value="Tanzania" data-i18n-option="countryTanzania">Tanzania</option>
-                                <option value="Togo" data-i18n-option="countryTogo">Togo</option>
-                                <option value="Uganda (East)" data-i18n-option="countryUgandaEast">Uganda (East)</option>
-                                <option value="Uganda (West)" data-i18n-option="countryUgandaWest">Uganda (West)</option>
-                                <option value="Zambia" data-i18n-option="countryZambia">Zambia</option>
-                            </select>
-                            <small class="help-text" data-i18n="countryNotListedHelp">If your country is not listed, please contact your GMD (Global Ministry Developer).</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="eventType"><span data-i18n="eventType">Event Type</span> *</label>
-                            <select id="eventType" name="eventType" required>
-                                <option value="">-- Select Event Type --</option>
-                                <option value="group-launch">Group Launch / Outreach</option>
-                                <option value="leadership-training">Leadership Training</option>
-                                <option value="group-care">Group Care</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="country"><span data-i18n="country">Country</span> *</label>
+                        <select id="country" name="country" required>
+                            <option value="" data-i18n="selectCountry">-- Select Country --</option>
+                            <option value="Angola" data-i18n-option="countryAngola">Angola</option>
+                            <option value="Benin" data-i18n-option="countryBenin">Benin</option>
+                            <option value="Burkina Faso" data-i18n-option="countryBurkinaFaso">Burkina Faso</option>
+                            <option value="Côte d'Ivoire" data-i18n-option="countryCoteDIvoire">Côte d'Ivoire</option>
+                            <option value="DRC" data-i18n-option="countryDRC">DRC (Democratic Republic of Congo)</option>
+                            <option value="Ghana" data-i18n-option="countryGhana">Ghana</option>
+                            <option value="Kenya" data-i18n-option="countryKenya">Kenya</option>
+                            <option value="Libya" data-i18n-option="countryLibya">Libya</option>
+                            <option value="Madagascar" data-i18n-option="countryMadagascar">Madagascar</option>
+                            <option value="Mali" data-i18n-option="countryMali">Mali</option>
+                            <option value="Nigeria" data-i18n-option="countryNigeria">Nigeria</option>
+                            <option value="North Africa" data-i18n-option="countryNorthAfrica">North Africa</option>
+                            <option value="Rwanda" data-i18n-option="countryRwanda">Rwanda</option>
+                            <option value="South Africa" data-i18n-option="countrySouthAfrica">South Africa</option>
+                            <option value="Tanzania" data-i18n-option="countryTanzania">Tanzania</option>
+                            <option value="Togo" data-i18n-option="countryTogo">Togo</option>
+                            <option value="Uganda (East)" data-i18n-option="countryUgandaEast">Uganda (East)</option>
+                            <option value="Uganda (West)" data-i18n-option="countryUgandaWest">Uganda (West)</option>
+                            <option value="Zambia" data-i18n-option="countryZambia">Zambia</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="originalRequestDate"><span data-i18n="originalRequestDate">When did you submit the original request?</span></label>
-                        <input type="month" id="originalRequestDate" name="originalRequestDate"
-                               placeholder="e.g., 2025-01">
-                        <small class="help-text" data-i18n="originalRequestHelp">Approximate month/year helps us find your request</small>
+                        <label for="requesterName"><span data-i18n="requesterName">Requester Name</span> *</label>
+                        <select id="requesterName" name="requesterName" required disabled>
+                            <option value="" data-i18n="selectRequesterFirst">-- Select Country First --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventType"><span data-i18n="eventSelection">Select Event to Report On</span> *</label>
+                        <select id="eventType" name="eventType" required disabled>
+                            <option value="" data-i18n="selectRequesterFirst">-- Select Requester First --</option>
+                        </select>
+                        <small class="help-text" data-i18n="eventNotListedHelp">If your event is not listed, please contact your GMD (Global Ministry Developer).</small>
                     </div>
                 </section>
 
@@ -405,11 +389,13 @@ https://www.dropbox.com/..."></textarea>
         </main>
 
         <footer>
-            <p data-i18n="footerText">&copy; 2025 MomCo Africa. All rights reserved.</p>
+            <p data-i18n="footerText">&copy; 2025 The MomCo - Africa. Raising up moms to new heights.</p>
         </footer>
     </div>
 
+    <script src="api-config.js"></script>
     <script src="translations-report.js"></script>
+    <script src="country-requester-data.js"></script>
     <script src="script-report.js"></script>
 </body>
 </html>

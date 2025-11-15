@@ -15,6 +15,7 @@
                 <button type="button" class="lang-btn" data-lang="fr">Français</button>
                 <button type="button" class="lang-btn" data-lang="pt">Português</button>
             </div>
+            <img src="MomCoLogo/The-MomCo-Primary-Logo-White.svg" alt="The MomCo" class="header-logo">
             <h1 data-i18n="title">MomCo Africa</h1>
             <h2 data-i18n="subtitle">Event Budget Request</h2>
             <p class="subtitle" data-i18n="description">Submit funding requests for events and group support</p>
@@ -22,36 +23,6 @@
 
         <main>
             <form id="requestForm" class="request-form">
-                <!-- Event Type Selection -->
-                <section class="form-section">
-                    <h3 data-i18n="selectEventType">Select Event Type</h3>
-                    <div class="event-type-selector">
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="group-launch" required>
-                            <div class="card-content">
-                                <h4 data-i18n="groupLaunchTitle">Group Launch / MomCo Outreach</h4>
-                                <p data-i18n="groupLaunchDesc">Launch new MomCo groups and present mission to potential leaders</p>
-                            </div>
-                        </label>
-
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="leadership-training" required>
-                            <div class="card-content">
-                                <h4 data-i18n="leadershipTrainingTitle">Leadership Training</h4>
-                                <p data-i18n="leadershipTrainingDesc">Training for existing leaders, team building, and goal setting</p>
-                            </div>
-                        </label>
-
-                        <label class="event-type-card">
-                            <input type="radio" name="eventType" value="group-care" required>
-                            <div class="card-content">
-                                <h4 data-i18n="groupCareTitle">Group Care</h4>
-                                <p data-i18n="groupCareDesc">Support and monitoring for existing groups (optional funding)</p>
-                            </div>
-                        </label>
-                    </div>
-                </section>
-
                 <!-- Requester Information -->
                 <section class="form-section">
                     <h3 data-i18n="requesterInfo">Requester Information</h3>
@@ -68,6 +39,7 @@
                             <option value="Ghana" data-i18n-option="countryGhana">Ghana</option>
                             <option value="Kenya" data-i18n-option="countryKenya">Kenya</option>
                             <option value="Libya" data-i18n-option="countryLibya">Libya</option>
+                            <option value="Madagascar" data-i18n-option="countryMadagascar">Madagascar</option>
                             <option value="Mali" data-i18n-option="countryMali">Mali</option>
                             <option value="Nigeria" data-i18n-option="countryNigeria">Nigeria</option>
                             <option value="North Africa" data-i18n-option="countryNorthAfrica">North Africa</option>
@@ -104,8 +76,38 @@
                     </div>
                 </section>
 
+                <!-- Event Type Selection -->
+                <section class="form-section">
+                    <h3 data-i18n="selectEventType">Select Event Type</h3>
+                    <div class="event-type-selector">
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="group-launch" required>
+                            <div class="card-content">
+                                <h4 data-i18n="groupLaunchTitle">Group Launch / MomCo Outreach</h4>
+                                <p data-i18n="groupLaunchDesc">Launch new MomCo groups and present mission to potential leaders</p>
+                            </div>
+                        </label>
+
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="leadership-training" required>
+                            <div class="card-content">
+                                <h4 data-i18n="leadershipTrainingTitle">Leadership Training</h4>
+                                <p data-i18n="leadershipTrainingDesc">Training for existing leaders, team building, and goal setting</p>
+                            </div>
+                        </label>
+
+                        <label class="event-type-card">
+                            <input type="radio" name="eventType" value="group-care" required>
+                            <div class="card-content">
+                                <h4 data-i18n="groupCareTitle">Group Care</h4>
+                                <p data-i18n="groupCareDesc">Support and monitoring for existing groups (optional funding)</p>
+                            </div>
+                        </label>
+                    </div>
+                </section>
+
                 <!-- Event Details (Common) -->
-                <section class="form-section" id="eventDetailsSection">
+                <section class="form-section" id="eventDetailsSection" style="display: none;">
                     <h3 data-i18n="eventDetails">Event Details</h3>
 
                     <div class="form-row">
@@ -130,21 +132,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="fundsNeededDate"><span data-i18n="fundsNeededDate">Date Funds Needed By</span> *</label>
-                            <input type="date" id="fundsNeededDate" name="fundsNeededDate" required>
-                            <small class="help-text" data-i18n="fundsNeededHelp">At least 2-3 weeks before event</small>
+                            <label for="participantsExpected"><span data-i18n="participantsExpected">Number of Participants Expected</span> *</label>
+                            <input type="number" id="participantsExpected" name="participantsExpected"
+                                   min="1" required placeholder="e.g., 25">
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="participantsExpected"><span data-i18n="participantsExpected">Number of Participants Expected</span> *</label>
-                        <input type="number" id="participantsExpected" name="participantsExpected"
-                               min="1" required placeholder="e.g., 25">
                     </div>
                 </section>
 
                 <!-- Event Agenda -->
-                <section class="form-section" id="agendaSection">
+                <section class="form-section" id="agendaSection" style="display: none;">
                     <h3 data-i18n="eventAgenda">Event Agenda</h3>
 
                     <div class="form-group">
@@ -163,7 +159,7 @@
                 </section>
 
                 <!-- Budget Request -->
-                <section class="form-section" id="budgetSection">
+                <section class="form-section" id="budgetSection" style="display: none;">
                     <h3 data-i18n="budgetRequest">Budget Request</h3>
 
                     <div class="form-group">
@@ -184,114 +180,35 @@
                             <label for="currency"><span data-i18n="currency">Currency</span> *</label>
                             <select id="currency" name="currency" required>
                                 <option value="" data-i18n="currencySelectDefault">-- Auto-selected --</option>
-                                <option value="KSH" data-i18n-option="currencyKSH">KSH (Kenyan Shilling)</option>
                                 <option value="GHS" data-i18n-option="currencyGHS">GHS (Ghanaian Cedi)</option>
-                                <option value="USD" data-i18n-option="currencyUSD">USD (US Dollar)</option>
-                                <option value="UGX" data-i18n-option="currencyUGX">UGX (Ugandan Shilling)</option>
-                                <option value="RWF" data-i18n-option="currencyRWF">RWF (Rwandan Franc)</option>
-                                <option value="ZMW" data-i18n-option="currencyZMW">ZMW (Zambian Kwacha)</option>
-                                <option value="XOF" data-i18n-option="currencyXOF">XOF (West African CFA Franc)</option>
+                                <option value="KSH" data-i18n-option="currencyKSH">KSH (Kenyan Shilling)</option>
+                                <option value="MGA" data-i18n-option="currencyMGA">MGA (Malagasy Ariary)</option>
                                 <option value="NGN" data-i18n-option="currencyNGN">NGN (Nigerian Naira)</option>
-                                <option value="ZAR" data-i18n-option="currencyZAR">ZAR (South African Rand)</option>
+                                <option value="RWF" data-i18n-option="currencyRWF">RWF (Rwandan Franc)</option>
                                 <option value="TZS" data-i18n-option="currencyTZS">TZS (Tanzanian Shilling)</option>
+                                <option value="UGX" data-i18n-option="currencyUGX">UGX (Ugandan Shilling)</option>
+                                <option value="USD" data-i18n-option="currencyUSD">USD (US Dollar)</option>
+                                <option value="XOF" data-i18n-option="currencyXOF">XOF (West African CFA Franc)</option>
+                                <option value="ZAR" data-i18n-option="currencyZAR">ZAR (South African Rand)</option>
+                                <option value="ZMW" data-i18n-option="currencyZMW">ZMW (Zambian Kwacha)</option>
                             </select>
                             <small class="help-text" data-i18n="currencyAutoSelected">Auto-selected based on country</small>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
-                        <input type="text" id="sendFundsTo" name="sendFundsTo" required
-                               data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
-                        <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
-                    </div>
-                </section>
-
-                <!-- Group Launch Specific Fields -->
-                <section class="form-section event-specific" id="groupLaunchFields" style="display: none;">
-                    <h3 data-i18n="groupLaunchDetails">Group Launch Details</h3>
-
-                    <div class="form-group">
-                        <label for="potentialGroups" data-i18n="potentialGroups">Number of Potential New Groups/Leaders</label>
-                        <input type="number" id="potentialGroups" name="potentialGroups"
-                               min="0" data-i18n-placeholder="potentialGroupsPlaceholder" placeholder="e.g., 5">
-                    </div>
-
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="curriculumCopies" data-i18n="curriculumCopies">Curriculum Copies Needed</label>
-                            <input type="number" id="curriculumCopies" name="curriculumCopies"
-                                   min="0" data-i18n-placeholder="curriculumCopiesPlaceholder" placeholder="e.g., 30">
+                            <label for="sendFundsTo"><span data-i18n="sendFundsTo">Send Funds To</span> *</label>
+                            <input type="text" id="sendFundsTo" name="sendFundsTo" required
+                                   data-i18n-placeholder="sendFundsToPlaceholder" placeholder="Name of person who will receive the transfer">
+                            <small class="help-text" data-i18n="sendFundsToHelp">May be different from requester</small>
                         </div>
 
                         <div class="form-group">
-                            <label for="ministryAgreementCopies" data-i18n="ministryAgreementCopies">Ministry Agreement Copies Needed</label>
-                            <input type="number" id="ministryAgreementCopies" name="ministryAgreementCopies"
-                                   min="0" data-i18n-placeholder="ministryAgreementCopiesPlaceholder" placeholder="e.g., 30">
+                            <label for="fundsNeededDate"><span data-i18n="fundsNeededDate">Date Funds Needed By</span> *</label>
+                            <input type="date" id="fundsNeededDate" name="fundsNeededDate" required>
+                            <small class="help-text" data-i18n="fundsNeededHelp">At least 2-3 weeks before event</small>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="specialRequests" data-i18n="specialRequests">Special Requests</label>
-                        <textarea id="specialRequests" name="specialRequests" rows="4"
-                                  data-i18n-placeholder="specialRequestsPlaceholder"></textarea>
-                    </div>
-                </section>
-
-                <!-- Leadership Training Specific Fields -->
-                <section class="form-section event-specific" id="leadershipTrainingFields" style="display: none;">
-                    <h3 data-i18n="leadershipTrainingDetails">Leadership Training Details</h3>
-
-                    <div class="form-group">
-                        <label for="attendingLeaders" data-i18n="attendingLeaders">Attending Leaders</label>
-                        <textarea id="attendingLeaders" name="attendingLeaders" rows="4"
-                                  data-i18n-placeholder="attendingLeadersPlaceholder"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label data-i18n="trainingTopicsLabel">Training Topics *</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="handbook">
-                                <span data-i18n="trainingHandbook">Leadership Handbook, Mission & Vision</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="curriculum">
-                                <span data-i18n="trainingCurriculum">Global Curriculum Resources</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="meetup">
-                                <span data-i18n="trainingMeetup">Key Aspects of a Meetup</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="online">
-                                <span data-i18n="trainingOnline">MomCo Online Resources</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="general">
-                                <span data-i18n="trainingGeneral">General Leadership Training</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="certification">
-                                <span data-i18n="trainingCertification">Leadership Certification</span>
-                            </label>
-                            <label class="checkbox-label">
-                                <input type="checkbox" name="trainingTopics" value="other">
-                                <span data-i18n="trainingOtherOption">Other (specify below)</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="trainingOther" data-i18n="otherTrainingTopics">Other Training Topics</label>
-                        <input type="text" id="trainingOther" name="trainingOther"
-                               data-i18n-placeholder="otherTrainingTopicsPlaceholder" placeholder="Specify other topics if selected above">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="logisticsNeeds" data-i18n="logisticsNeeds">Transportation, Lodging, or Meal Plans</label>
-                        <textarea id="logisticsNeeds" name="logisticsNeeds" rows="4"
-                                  data-i18n-placeholder="logisticsNeedsPlaceholder"></textarea>
                     </div>
                 </section>
 
@@ -383,7 +300,7 @@
                 </section>
 
                 <!-- Additional Notes -->
-                <section class="form-section">
+                <section class="form-section" id="additionalInfoSection" style="display: none;">
                     <h3 data-i18n="additionalInfo">Additional Information</h3>
 
                     <div class="form-group">
@@ -394,7 +311,7 @@
                 </section>
 
                 <!-- Submit Button -->
-                <section class="form-section">
+                <section class="form-section" id="submitSection" style="display: none;">
                     <div class="submit-section">
                         <button type="submit" class="btn-primary" data-i18n="submitRequest">Submit Request</button>
                         <button type="reset" class="btn-secondary" data-i18n="clearForm">Clear Form</button>
@@ -405,11 +322,13 @@
         </main>
 
         <footer>
-            <p>&copy; 2025 MomCo Africa. All rights reserved.</p>
+            <p>&copy; 2025 The MomCo - Africa. Raising up moms to new heights.</p>
         </footer>
     </div>
 
+    <script src="api-config.js"></script>
     <script src="translations.js"></script>
+    <script src="country-requester-data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

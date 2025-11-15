@@ -410,6 +410,7 @@ const CURRENCY_MAP = {
     'Ghana': 'GHS',
     'Kenya': 'KSH',
     'Libya': 'USD',
+    'Madagascar': 'MGA',
     'Mali': 'XOF',
     'Nigeria': 'NGN',
     'North Africa': 'USD',
@@ -429,8 +430,8 @@ let currencySelect;
 let eventDetailsSection;
 let agendaSection;
 let budgetSection;
-let groupLaunchFields;
-let leadershipTrainingFields;
+let additionalInfoSection;
+let submitSection;
 let groupCareFields;
 let requestForm;
 let loadGroupLaunchTemplate;
@@ -456,8 +457,8 @@ function initializeElements() {
     eventDetailsSection = document.getElementById('eventDetailsSection');
     agendaSection = document.getElementById('agendaSection');
     budgetSection = document.getElementById('budgetSection');
-    groupLaunchFields = document.getElementById('groupLaunchFields');
-    leadershipTrainingFields = document.getElementById('leadershipTrainingFields');
+    additionalInfoSection = document.getElementById('additionalInfoSection');
+    submitSection = document.getElementById('submitSection');
     groupCareFields = document.getElementById('groupCareFields');
     requestForm = document.getElementById('requestForm');
     loadGroupLaunchTemplate = document.getElementById('loadGroupLaunchTemplate');
@@ -543,15 +544,13 @@ function handleEventTypeChange(e) {
     // Show appropriate section based on selection
     switch(selectedType) {
         case 'group-launch':
-            groupLaunchFields.style.display = 'block';
             showCommonSections();
-            setFieldsRequired(groupLaunchFields, false); // Optional fields
+            restoreCommonFieldsRequired(); // Restore required fields
             break;
 
         case 'leadership-training':
-            leadershipTrainingFields.style.display = 'block';
             showCommonSections();
-            setFieldsRequired(leadershipTrainingFields, false); // Optional fields
+            restoreCommonFieldsRequired(); // Restore required fields
             break;
 
         case 'group-care':
@@ -564,20 +563,39 @@ function handleEventTypeChange(e) {
 }
 
 /**
- * Show common sections (event details, agenda, budget)
+ * Show common sections (event details, agenda, budget, additional info, submit)
  */
 function showCommonSections() {
     eventDetailsSection.style.display = 'block';
     agendaSection.style.display = 'block';
     budgetSection.style.display = 'block';
+    additionalInfoSection.style.display = 'block';
+    submitSection.style.display = 'block';
+}
+
+/**
+ * Restore required attributes and asterisks for common fields
+ */
+function restoreCommonFieldsRequired() {
+    // Restore required attributes
+    document.getElementById('agenda').setAttribute('required', '');
+    document.getElementById('budget').setAttribute('required', '');
+    document.getElementById('amountRequested').setAttribute('required', '');
+    document.getElementById('currency').setAttribute('required', '');
+    document.getElementById('sendFundsTo').setAttribute('required', '');
+
+    // Restore asterisks
+    showRequiredAsterisk('agenda');
+    showRequiredAsterisk('budget');
+    showRequiredAsterisk('amountRequested');
+    showRequiredAsterisk('currency');
+    showRequiredAsterisk('sendFundsTo');
 }
 
 /**
  * Hide all event-specific sections
  */
 function hideAllEventSpecificSections() {
-    groupLaunchFields.style.display = 'none';
-    leadershipTrainingFields.style.display = 'none';
     groupCareFields.style.display = 'none';
 }
 
@@ -626,6 +644,41 @@ function makeGroupCareBudgetOptional() {
     // Event date can be blank for monitoring
     document.getElementById('eventDate').removeAttribute('required');
     document.getElementById('fundsNeededDate').removeAttribute('required');
+
+    // Hide asterisks for optional fields by replacing label content
+    hideRequiredAsterisk('agenda');
+    hideRequiredAsterisk('budget');
+    hideRequiredAsterisk('amountRequested');
+    hideRequiredAsterisk('currency');
+    hideRequiredAsterisk('sendFundsTo');
+}
+
+/**
+ * Hide the required asterisk (*) from a field's label
+ */
+function hideRequiredAsterisk(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        const label = field.closest('.form-group')?.querySelector('label');
+        if (label && label.textContent.includes('*')) {
+            // Replace the asterisk with empty string while preserving the rest of the label
+            label.innerHTML = label.innerHTML.replace(' *', '');
+        }
+    }
+}
+
+/**
+ * Show the required asterisk (*) on a field's label
+ */
+function showRequiredAsterisk(fieldId) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        const label = field.closest('.form-group')?.querySelector('label');
+        if (label && !label.textContent.includes('*')) {
+            // Add asterisk if not already present
+            label.innerHTML = label.innerHTML + ' *';
+        }
+    }
 }
 
 /**
@@ -635,7 +688,7 @@ function handleCountryChange(e) {
     const selectedCountry = e.target.value;
 
     // Populate requester dropdown based on country
-    populateRequesterDropdown(selectedCountry);
+    populateRequesterDropdownLocal(selectedCountry);
 
     if (selectedCountry && CURRENCY_MAP[selectedCountry]) {
         const currency = CURRENCY_MAP[selectedCountry];
@@ -651,43 +704,14 @@ function handleCountryChange(e) {
 
 /**
  * Populate requester dropdown based on selected country
+ * Uses shared function from country-requester-data.js
  */
-function populateRequesterDropdown(country) {
+function populateRequesterDropdownLocal(country) {
     const requesterSelect = document.getElementById('requesterName');
     const t = translations[currentLanguage];
 
-    // Clear existing options
-    requesterSelect.innerHTML = '';
-
-    if (!country) {
-        // No country selected
-        requesterSelect.disabled = true;
-        const defaultOption = document.createElement('option');
-        defaultOption.value = '';
-        defaultOption.textContent = t.selectRequesterFirst || '-- Select Country First --';
-        requesterSelect.appendChild(defaultOption);
-        return;
-    }
-
-    // Enable the dropdown
-    requesterSelect.disabled = false;
-
-    // Add default option
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.textContent = '-- Select Requester --';
-    requesterSelect.appendChild(defaultOption);
-
-    // Add placeholder requesters for each country
-    const requester1 = document.createElement('option');
-    requester1.value = `${country} Requester 1`;
-    requester1.textContent = `${country} Requester 1`;
-    requesterSelect.appendChild(requester1);
-
-    const requester2 = document.createElement('option');
-    requester2.value = `${country} Requester 2`;
-    requester2.textContent = `${country} Requester 2`;
-    requesterSelect.appendChild(requester2);
+    // Call the shared function
+    populateRequesterDropdown(country, requesterSelect, t);
 }
 
 /**
@@ -795,7 +819,7 @@ function clearValidationMessage(fieldId) {
 /**
  * Handle form submission
  */
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
     e.preventDefault();
 
     // Validate dates
@@ -804,9 +828,12 @@ function handleFormSubmit(e) {
         return;
     }
 
+    // Show loading message
+    showFormMessage('info', 'Submitting request... Please wait.');
+
     // Get form data
     const formData = new FormData(requestForm);
-    const data = {};
+    const data = { action: 'submitRequest' };
 
     // Convert FormData to object
     for (let [key, value] of formData.entries()) {
@@ -823,16 +850,45 @@ function handleFormSubmit(e) {
     data.submittedAt = new Date().toISOString();
     data.requestMonth = new Date().toLocaleString('en-US', { month: 'long', year: 'numeric' });
 
-    // Log form data (in production, this would send to backend)
-    console.log('Form Data:', data);
+    // Log form data for debugging
+    console.log('Submitting request:', data);
 
-    // Generate mock filename
-    const filename = generateFilename(data);
-    console.log('Generated Filename:', filename);
+    try {
+        // Send to backend
+        const response = await fetch(API_CONFIG.baseURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
 
-    // Show success message
-    showFormMessage('success',
-        `✓ Request submitted successfully!\n\nGenerated filename: ${filename}\n\nIn production, this would:\n• Generate a PDF with your request details\n• Save to Google Drive\n• Update the tracking spreadsheet\n• Send email notifications to GMD and you\n\nFor now, check the browser console to see your submitted data.`);
+        const result = await response.json();
+
+        if (result.success) {
+            // Generate filename
+            const filename = result.data.filename || generateFilename(data);
+
+            // Show success message
+            showFormMessage('success',
+                `✓ Request submitted successfully!\n\nGenerated filename: ${filename}\n\nYour request has been:\n• Saved to the tracking spreadsheet\n• Assigned a tracking number\n• Ready for GMD review\n\nYou will be notified when funds are sent.`);
+
+            // Reset form after successful submission
+            setTimeout(() => {
+                requestForm.reset();
+                hideAllEventSpecificSections();
+                formMessage.style.display = 'none';
+            }, 5000);
+
+        } else {
+            throw new Error(result.message || 'Submission failed');
+        }
+
+    } catch (error) {
+        console.error('Error submitting request:', error);
+        showFormMessage('error',
+            `Failed to submit request: ${error.message}\n\nPlease try again or contact your GMD if the problem persists.`);
+    }
 
     // Scroll to message
     formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });

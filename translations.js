@@ -41,6 +41,7 @@ const translations = {
         requesterName: "Requester Name",
         countryNotListedHelp: "If your country or name is not listed, please contact your GMD (Global Ministry Developer).",
         selectRequesterFirst: "-- Select Country First --",
+        selectRequester: "-- Select Requester --",
 
         // Country names
         countryAngola: "Angola",
@@ -256,6 +257,7 @@ For now, check the browser console to see your submitted data.`
         requesterName: "Nom du Demandeur",
         countryNotListedHelp: "Si votre pays ou nom n'est pas répertorié, veuillez contacter votre GMD (Développeur de Ministère Global).",
         selectRequesterFirst: "-- Sélectionner d'abord le Pays --",
+        selectRequester: "-- Sélectionner le Demandeur --",
 
         // Country names (French)
         countryAngola: "Angola",
@@ -471,6 +473,7 @@ Pour l'instant, vérifiez la console du navigateur pour voir vos données soumis
         requesterName: "Nome do Solicitante",
         countryNotListedHelp: "Se o seu país ou nome não estiver listado, entre em contato com seu GMD (Desenvolvedor de Ministério Global).",
         selectRequesterFirst: "-- Selecionar País Primeiro --",
+        selectRequester: "-- Selecionar Solicitante --",
 
         // Country names (Portuguese)
         countryAngola: "Angola",
