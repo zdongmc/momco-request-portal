@@ -651,6 +651,8 @@ function makeGroupCareBudgetOptional() {
     hideRequiredAsterisk('amountRequested');
     hideRequiredAsterisk('currency');
     hideRequiredAsterisk('sendFundsTo');
+    hideRequiredAsterisk('eventDate');
+    hideRequiredAsterisk('fundsNeededDate');
 }
 
 /**
