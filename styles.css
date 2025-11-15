@@ -76,7 +76,7 @@ header {
 }
 
 .header-logo {
-    width: 120px;
+    width: 80px;
     height: auto;
     margin-bottom: 15px;
     /* Remove filter - will create white logo version instead */
