@@ -3,7 +3,11 @@
    ======================================== */
 
 /* Google Fonts Import - Must be first */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+/* Brand Typography Alternatives:
+   - Space Grotesk (IVYMODE alternative) - Headlines
+   - Playfair Display (Ivy Presto alternative) - Subheadings
+   - Montserrat (Brand Standard) - Body Text */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 /* CSS Variables for theming - MomCo Brand Colors */
 :root {
@@ -79,23 +83,28 @@ header {
 }
 
 header h1 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 8px;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
 }
 
 header h2 {
+    font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     font-weight: 500;
+    font-style: italic;
     margin-bottom: 8px;
     opacity: 0.95;
     letter-spacing: 0.3px;
 }
 
 .subtitle {
+    font-family: 'Playfair Display', serif;
     font-size: 0.95rem;
+    font-style: italic;
     opacity: 0.85;
     margin: 0;
 }
@@ -163,13 +172,14 @@ main {
 }
 
 .form-section h3 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 2px solid var(--primary-color);
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
 }
 
 /* Event Type Selector */
